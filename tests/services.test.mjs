@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {countdownParts,validateRsvp,sendRsvp} from '../dist/services.js';
+import {wedding,content} from '../dist/config.js';
+test('countdown is anchored to 2 PM IST, clamps after wedding',()=>{assert.equal(new Date(wedding.countdown).toISOString(),'2026-12-08T08:30:00.000Z');assert.deepEqual(countdownParts(wedding.countdown,Date.parse('2026-12-07T07:28:57Z')),[1,1,1,3]);assert.deepEqual(countdownParts(wedding.countdown,Date.parse('2027-01-01')),[0,0,0,0]);});
+const valid={name:'Example Guest',attendance:'yes',guests:'3',message:'Test only'};
+test('RSVP rejects blank names, missing attendance and invalid party sizes',()=>{assert.ok(validateRsvp(valid));for(const changes of [{name:'  '},{attendance:''},{guests:'0'},{guests:'1.5'},{guests:'101'},{guests:'NaN'},{message:'x'.repeat(2001)}])assert.equal(validateRsvp({...valid,...changes}),false);assert.ok(validateRsvp({...valid,attendance:'no',guests:'0'}));});
+test('RSVP sends exactly the required fields, accepts a confirmed receipt',async()=>{let sent;await sendRsvp('https://example.test',valid,async(url,options)=>{sent=Object.fromEntries(options.body);assert.equal(options.method,'POST');return {ok:true,type:'cors',text:async()=>'{"ok":true}'};});assert.deepEqual(sent,{type:'rsvp',...valid});});
+test('RSVP does not show success for opaque, error, HTML or unconfirmed responses',async()=>{for(const response of [{ok:true,type:'opaque'},{ok:false},{ok:true,text:async()=>'<html>Login</html>'},{ok:true,text:async()=>'{"ok":false}'},{ok:true,text:async()=>'{"message":"unknown"}'}])await assert.rejects(sendRsvp('https://example.test',valid,async()=>response));});
+test('translations have parity and Hindi contains no Devanagari numerals',()=>{assert.deepEqual(Object.keys(content.en).sort(),Object.keys(content.hi).sort());assert.doesNotMatch(JSON.stringify(content.hi),/[०-९]/);assert.equal(wedding.events.length,6);assert.equal(wedding.events.filter(e=>e.date===0).length,3);});

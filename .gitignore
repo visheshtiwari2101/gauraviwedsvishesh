@@ -1,0 +1,7 @@
+.sites-runtime/
+.openai/
+node_modules/
+*.zip
+.env
+.env.*
+!.env.example

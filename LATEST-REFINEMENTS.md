@@ -1,0 +1,11 @@
+# Focused invitation refinements
+
+Preserved the existing design, wedding facts, bilingual configuration, RSVP endpoint, music source, and supplied artwork. Opening names now stack on all widths, with a smaller ampersand. Supplied Ganesha precedes the blessing in the opening and hero. Help contacts follow the finale, displaying +91 prefixes with existing tel links. Text entrances primarily fade upward once. Both garden sides receive a share of the capped breeze budget, with occasional bird flight and restrained bougainvillea accents.
+
+Validation: production build and six regression tests passed; English and Hindi checked at 360, 390 and 430 pixels with no detected overflow or clipped checked content; desktop name stack verified; no browser console errors; reduced motion shows all text and disables bird/ambient motion. Real-device frame rates and live third-party RSVP/music services were not newly verified.
+
+## New artwork
+
+Generated using the built-in image generation tool. Original: `artwork-source/garden-accents.png`. Optimized browser asset: `dist/assets/garden-accents.webp`. The transparent atlas contains a muted bougainvillea branch and a flying green parakeet. Existing banana leaves, marigolds and perched birds are reused. Supplied Ganesha and monogram checksums remain unchanged.
+
+Final prompt: Use case: stylized-concept. Create a transparent botanical sprite atlas for an existing luxury Indian wedding invitation. Exactly TWO separate illustrations in equal side-by-side square cells on a 1536x768 transparent canvas. Left cell: a delicate curving bougainvillea branch with olive and sage leaves and a small restrained cluster of dusty terracotta-rose papery flowers, no bright magenta, asymmetrical airy silhouette. Right cell: one tiny natural green Indian parakeet in graceful side-view flight, wings extended, facing right, anatomically believable, no perch. Fine antique botanical watercolor and Indian miniature painting detail, muted natural greens, subtle ivory highlights. Both subjects fully inside their own cell with generous 70px padding and no overlap. Genuinely transparent alpha around and between subjects, no colored background, paper texture, scenery, shadows, grid, border, text, people, deity, or logo. Match premium hand-painted botanical stationery, not cartoon or vector clipart.

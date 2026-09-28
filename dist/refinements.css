@@ -1,0 +1,253 @@
+/* Refinement layer for the existing invitation. Mobile is the base layout. */
+:root { --script: 'Cormorant Infant', 'Cormorant Garamond', serif; --sage: #6f795b; }
+html { scroll-behavior: auto; scroll-padding-block: 80px; }
+.opening:after, .journey:after { display: none; }
+.journey { font-family: var(--serif); font-size: 20px; }
+.eyebrow, .date-line, .opening-footnote, .event-time, .time-zone, .countdown-target, .countdown-part>span, .scroll-cue, .text-link, .language-control, .music-control, form, .contacts a { font-family: var(--body); }
+.journey .eyebrow { font-size: 11px; letter-spacing: .15em; line-height: 1.9; }
+.intro { font-size: 22px; line-height: 1.65; }
+.names, .section-title, .family-name { font-family: var(--script); font-weight: 400; letter-spacing: 0; }
+.opening:has(.official img) .names { font-family: var(--script); font-size: clamp(58px, 17vw, 74px); line-height: 1.08; }
+.opening .names span { font-family: var(--serif); font-size: .42em; line-height: 1.1; }
+.opening .opening-subtitle { max-width: 265px; margin: auto; line-height: 1.4; }
+.opening .opening-footnote { font-size: 10px; letter-spacing: .13em; }
+.opening .opening-actions { margin-top: 20px; }
+.opening .canopy { transform-origin: 50% 0; }
+.opening [data-ambient] { animation-play-state: running; }
+.journey .section-title, .invocation .section-title, .countdown .section-title { font-family: var(--script); font-size: clamp(45px, 12vw, 59px); line-height: 1.3; font-style: normal; margin: 12px auto 25px; max-width: 650px; }
+.hero .names { font-family: var(--script); font-size: clamp(76px, 22vw, 98px); line-height: 1.08; display: flex; flex-direction: column; gap: 0; margin: 23px 0; }
+.hero .names span { font-family: var(--serif); font-size: .4em; line-height: 1; }
+.hero-copy { width: 100%; }
+.hero { padding-top: 86px !important; padding-bottom: 155px !important; }
+.hero { min-height: 100svh; }
+.hero-bough { display: none; }
+.hero-end { max-width: 300px; margin-inline: auto; }
+.invitation-intro { font-size: 22px; max-width: 295px; line-height: 1.55; }
+.hero .eyebrow, .hero .hero-date, .hero .venue-inline, .hero .hashtag, .hero-end { position: relative; z-index: 2; }
+.hero-landscape, .venue-art { will-change: auto; }
+.hero-landscape { opacity: .6; inset-block-end: -60px; }
+.blessing { font-size: 25px; max-width: 460px; }
+.invocation-copy { position: relative; z-index: 2; }
+.invocation { padding-top: 110px !important; padding-bottom: 120px !important; }
+.invocation-halo { top: 72px; }
+.botanical { will-change: auto; }
+.depth-active { will-change: transform; }
+
+/* Quiet depth at the edges, plus botanical passages between compositions. */
+.nature-layer { position: absolute; z-index: 0; pointer-events: none; user-select: none; }
+.nature-layer img { display: block; width: 100%; height: auto; object-fit: contain; }
+.nature-layer>div { width: 100%; transform-origin: 50% 100%; }
+.hero-grove { width: 200px; left: -132px; bottom: -35px; opacity: .85; }
+.invocation-grove { width: 230px; right: -160px; top: -100px; opacity: .78; }
+.invocation-grove img { transform: scaleX(-1); }
+.family-meadow { width: 360px; left: -200px; bottom: -115px; opacity: .9; }
+.programme-grove { width: 220px; right: -176px; top: 45%; opacity: .6; }
+.countdown-meadow { width: 350px; right: -215px; bottom: -80px; opacity: .8; }
+.venue-grove { width: 270px; left: -195px; bottom: -60px; opacity: .9; }
+.rsvp-meadow { width: 340px; right: -235px; top: -120px; opacity: .85; }
+.finale-grove { width: 260px; left: -214px; top: -55px; opacity: .72; }
+.family-bough { display: none; }
+.petal-passage { position: absolute; top: 72%; right: 5%; width: 34px; height: 110px; pointer-events: none; z-index: 1; }
+.petal-flight { display: block; width: 30px; height: 30px; background: url('./assets/meadow.webp') -199px -18px / 230px auto no-repeat; opacity: 0; }
+.countdown>p, .countdown>h2, .countdown-line, .contacts { position: relative; z-index: 2; }
+.venue-content { z-index: 2; }
+.venue-art { opacity: .9; }
+
+/* Family invitation: typographic hosts, quiet blessings, culminating names. */
+.families { padding-top: 60px !important; padding-bottom: 125px !important; }
+.family-columns { display: flex; flex-direction: column; gap: 0; max-width: 1010px; margin: 46px auto 30px; }
+.family { padding: 0 5px; }
+.family-blessings { max-width: 310px; margin: 0 auto 26px; }
+.family-blessing-label { font-family: var(--serif); font-style: italic; font-size: 19px; color: var(--olive); margin-bottom: 8px; }
+.grandparents { font-family: var(--serif); font-size: 20px; line-height: 1.55; color: #69634f; }
+.grandparents .family-amp { display: inline; font-size: 19px; }
+.parents { margin: 0 auto 16px; font-size: 31px; line-height: 1.2; font-weight: 500; color: var(--wine); }
+.parents>[data-parent-name] { display: block; font: inherit; color: inherit; }
+.parents>.family-amp { display: block; margin: 6px 0; font: italic 24px/1 var(--serif); color: #8b855f; }
+.host-invitation { max-width: 250px; margin: 18px auto 8px; font-size: 21px; line-height: 1.5; font-style: italic; }
+.family-name { font-size: 75px; line-height: 1.3; margin-top: 6px; }
+.family-flourish { order: 0; position: relative; width: 210px; height: 100px; margin: -4px auto 38px; }
+.family-flourish img { width: 210px; height: 140px; object-fit: contain; transform: translateY(-28px); }
+.family:nth-child(1) { order: -1; }
+.family:nth-child(2) { order: 1; }
+.family-end { font-size: 23px; max-width: 500px; }
+
+/* One timeline, six distinct ceremonial illustrations. */
+.programme { padding-top: 65px !important; }
+.timeline { margin-top: 38px; }
+.timeline-line { left: 6px; top: 66px; bottom: 170px; background: #a6a68344; }
+.timeline-line span { background: #83915f; width: 1px; }
+.day-heading { margin-left: 24px; padding-left: 0; min-width: 0; background: transparent; }
+.day-date { font-size: 23px; }
+.day-heading h3 { font-family: var(--script); font-size: 34px; font-style: normal; }
+.day-heading { isolation: isolate; }
+.day-heading:before { content: ''; position: absolute; inset: -8px -14px; z-index: -1; background: radial-gradient(ellipse, #f2e7d2 58%, transparent 75%); pointer-events: none; }
+.event { display: grid; grid-template-columns: 86px minmax(0,1fr); gap: 12px; padding: 27px 0 40px 22px; min-height: 230px; align-items: start; }
+.event-marker { left: 6px; top: 35px; font-size: 20px; background: #f2e7d2; }
+.event .event-copy, .event:nth-child(even) .event-copy { width: auto; padding: 0; margin: 0; text-align: left; min-width: 0; }
+.event h3 { font-family: var(--serif); font-size: 29px; line-height: 1.13; margin: 8px 0 12px; }
+.event-time { font-size: 12px; letter-spacing: .11em; line-height: 1.6; margin: 0; color: #743d31; }
+.event-copy>p:last-child { font-size: 20px; line-height: 1.45; }
+.ceremony-art { position: relative; width: 110px; height: 110px; margin: 12px 0 0 -12px; }
+.ceremony-sway { width: 100%; height: 100%; position: relative; overflow: hidden; }
+.ceremony-sprite { display: block; position: absolute; width: 300%; height: 200%; max-width: none; object-fit: fill; }
+.ceremony-0 { left: 0; top: 0; }.ceremony-1 { left: -100%; top: 0; }.ceremony-2 { left: -200%; top: 0; }
+.ceremony-3 { left: 0; top: -100%; }.ceremony-4 { left: -100%; top: -100%; }.ceremony-5 { left: -200%; top: -100%; }
+.programme-day+.programme-day { padding-top: 25px; }
+.countdown { padding-top: 70px !important; padding-bottom: 80px !important; }
+.countdown-line { gap: 9px; width: 100%; max-width: 740px; margin: 28px auto; }
+.countdown-part { flex-direction: column; align-items: center; gap: 8px; min-width: 45px; }
+.countdown-part strong { font-size: 43px; line-height: 1; }
+.countdown-part>span { font-size: 11px; letter-spacing: .06em; }
+.countdown-dot { font-size: 22px; margin-top: -20px; }
+.countdown-target { font-size: 12px; }
+.venue { padding-top: 100px !important; min-height: 755px; }
+.venue h2 { font-family: var(--script); font-size: 67px; line-height: 1.25; }
+
+/* Direct, touch-sized RSVP choices, without dropdown controls. */
+.rsvp { padding-top: 75px !important; }
+.rsvp .section-title { max-width: 340px; font-size: 48px; }
+.rsvp .intro { max-width: 450px; }
+form { margin: 40px auto 50px; }
+.field { scroll-margin-block: 100px; }
+.field label, .attendance-field legend { font-size: 14px; color: #5e5642; line-height: 1.6; }
+.attendance-field { padding: 0; border: 0; margin: 0 0 28px; min-width: 0; }
+.attendance-field legend { margin-bottom: 12px; padding: 0; }
+.attendance-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.attendance-choice { position: relative; display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 63px; padding: 12px 8px; cursor: pointer; border: 1px solid #ac9c7c; font-family: var(--serif); font-size: 19px; line-height: 1.15; text-align: center; transition: background-color .18s, border-color .18s; }
+.attendance-choice input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.choice-mark { width: 9px; height: 9px; border: 1px solid currentColor; border-radius: 50%; flex-shrink: 0; }
+.attendance-choice:has(input:checked) { background: #76845b15; border-color: #64754c; color: #3e5636; box-shadow: inset 0 0 0 1px #64754c; }
+.attendance-choice:has(input:checked) .choice-mark { background: currentColor; box-shadow: inset 0 0 0 2px var(--paper); }
+.attendance-choice:has(input:focus-visible) { outline: 2px solid var(--wine); outline-offset: 4px; }
+.attendance-choice:has(input[aria-invalid=true]) { border-color: #942f25; }
+.attendance-choice:has(input:disabled) { opacity: .65; cursor: default; }
+.guest-stepper { display: inline-flex; align-items: center; align-self: flex-start; border: 1px solid #a69979; height: 50px; margin-top: 4px; }
+.guest-stepper button { display: grid; place-items: center; width: 49px; height: 48px; background: transparent; border: 0; font-size: 24px; color: var(--wine); padding: 0; }
+.guest-stepper input { width: 62px; min-height: 48px; padding: 0; border: 0; border-inline: 1px solid #a6997933; font-family: var(--serif); font-size: 28px; text-align: center; appearance: textfield; -moz-appearance: textfield; }
+.guest-stepper input::-webkit-inner-spin-button, .guest-stepper input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.guest-stepper button:disabled { cursor: default; opacity: .3; }
+.primary-button { border-radius: 1px; }
+.contacts>p { font-family: var(--script); font-style: normal; font-size: 34px; line-height: 1.35; }
+.contacts { padding-bottom: 16px; }
+.finale { padding-bottom: 185px !important; }
+.finale h2 { font-family: var(--script); text-transform: none; letter-spacing: 0; font-size: 80px; line-height: 1.18; }
+.finale h2 em { font-family: var(--serif); font-size: 26px; }
+.finale .monogram { width: 215px; height: 215px; }
+.finale-bough { opacity: .55; }
+.finale-families { font-size: 28px; }
+
+/* Independent controls: language at right, icon-only music at left. */
+.language-control { position: fixed; right: max(12px,env(safe-area-inset-right)); bottom: max(14px,env(safe-area-inset-bottom)); z-index: 50; display: flex; align-items: center; min-height: 44px; padding: 0 4px; background: #f8f4eb; border: 1px solid #b6a17c; box-shadow: 0 3px 12px #493c2010; }
+.language-control button { min-width: 40px; min-height: 44px; padding: 8px 5px; border: 0; background: transparent; font-size: 13px; color: #766d57; }
+.language-control button[aria-pressed=true] { color: var(--wine); font-weight: 600; text-decoration-thickness: 1px; text-underline-offset: 6px; }
+.language-control span { font-size: 12px; color: #b5a786; }
+#music-toggle.music-control { position: fixed; bottom: max(14px,env(safe-area-inset-bottom)); left: max(12px,env(safe-area-inset-left)); z-index: 50; display: grid; place-items: center; width: 46px; height: 46px; padding: 0; color: var(--wine); border: 1px solid #b6a17c; border-radius: 50%; background: #f8f4eb; box-shadow: 0 3px 12px #493c2010; }
+.music-slash { opacity: .8; }
+#music-toggle[aria-pressed=true] .music-slash { opacity: 0; }
+.music-ripple { position: absolute; inset: 3px; border: 1px solid currentColor; border-radius: 50%; opacity: 0; pointer-events: none; }
+#music-toggle[aria-pressed=true] .music-ripple { animation: music-breathe 3.8s ease-in-out infinite; }
+
+/* Scroll movement is written only by the shared scheduler. */
+.motion-ready [data-reveal]:not(.reveal-complete) { opacity: .2; }
+[data-reveal] { transition: none; }
+.reveal-complete { opacity: 1; }
+[data-ambient] { animation-play-state: paused; }
+[data-ambient=bough] { animation: bough-breathe 15s ease-in-out infinite alternate; animation-play-state: paused; }
+[data-ambient=grove] { animation: grove-breathe 17s ease-in-out infinite alternate; animation-play-state: paused; }
+[data-ambient=meadow] { animation: meadow-breathe 13s ease-in-out infinite alternate; animation-play-state: paused; }
+[data-ambient=ceremony] { animation: ceremony-breathe 9s ease-in-out infinite alternate; animation-play-state: paused; }
+[data-ambient=petal] { animation: petal-drift 22s ease-in-out infinite; animation-play-state: paused; }
+[data-ambient].ambient-running { animation-play-state: running; }
+@keyframes bough-breathe { from { transform: translate3d(0,0,0) rotate(-.2deg); } to { transform: translate3d(1px,2px,0) rotate(.25deg); } }
+@keyframes grove-breathe { from { transform: translate3d(0,0,0) rotate(-.3deg); } to { transform: translate3d(1px,-2px,0) rotate(.4deg); } }
+@keyframes meadow-breathe { from { transform: rotate(-.35deg); } to { transform: rotate(.4deg); } }
+@keyframes ceremony-breathe { from { transform: translate3d(0,1px,0) rotate(-.5deg); } to { transform: translate3d(0,-3px,0) rotate(.5deg); } }
+@keyframes music-breathe { 0%,100% { transform: scale(1); opacity: .05; } 50% { transform: scale(1.18); opacity: .25; } }
+@keyframes petal-drift { 0%,40%,100% { transform: translate3d(-10px,-30px,0) rotate(-25deg); opacity: 0; } 48% { opacity: .65; } 66% { opacity: .45; } 74% { transform: translate3d(12px,70px,0) rotate(55deg); opacity: 0; } }
+
+/* Devanagari keeps comfortable line-height and never inherits Latin script. */
+html[lang=hi] .journey { font-family: var(--devanagari); font-size: 17px; }
+html[lang=hi] .section-title, html[lang=hi] .invocation .section-title, html[lang=hi] .countdown .section-title { font: 400 34px/1.7 var(--devanagari); }
+html[lang=hi] .hero .names { font-family: var(--devanagari); font-size: 56px; line-height: 1.55; }
+html[lang=hi] .family-name { font-family: var(--devanagari); font-size: 48px; }
+html[lang=hi] .family-blessing-label { font: 400 15px/1.8 var(--devanagari); }
+html[lang=hi] .grandparents { font: 400 17px/1.95 var(--devanagari); }
+html[lang=hi] .parents { font: 500 25px/1.8 var(--devanagari); }
+html[lang=hi] .host-invitation { font: 400 16px/1.9 var(--devanagari); max-width: 280px; }
+html[lang=hi] .intro { font-size: 18px; line-height: 1.9; }
+html[lang=hi] .event h3 { font: 500 24px/1.6 var(--devanagari); }
+html[lang=hi] .event-copy>p:last-child { font-size: 17px; line-height: 1.9; }
+html[lang=hi] .attendance-choice { font: 400 15px/1.75 var(--devanagari); }
+html[lang=hi] .contacts>p { font: 400 23px/1.8 var(--devanagari); }
+html[lang=hi] .venue h2 { font: 400 48px/1.6 var(--devanagari); }
+html[lang=hi] .finale h2 { font-family: var(--devanagari); font-size: 52px; }
+html[lang=hi] .countdown-part>span { font-size: 11px; }
+html[lang=hi] .finale-families { font-size: 23px; }
+
+@media (min-width: 701px) {
+ .journey .eyebrow { font-size: 12px; }
+ .opening:has(.official img) .names { font-size: clamp(88px,9vw,135px); display: block; line-height: 1.15; }
+ .opening .opening-subtitle { max-width: none; }
+ .hero .names { font-size: clamp(110px,12vw,170px); display: block; line-height: 1.1; }
+ .hero .names span { padding-inline: .15em; }
+ .hero .hero-end { max-width: none; }
+ .invitation-intro { font-size: 26px; max-width: 480px; }
+ .hero { padding-top: 120px !important; padding-bottom: 210px !important; }
+ .journey .section-title, .invocation .section-title, .countdown .section-title { font-size: 76px; line-height: 1.3; }
+ .intro { font-size: 24px; }
+ .hero-grove { width: 400px; left: -165px; bottom: -80px; }
+ .invocation-grove { width: 340px; right: -170px; top: -95px; }
+ .family-meadow { width: 590px; left: -260px; bottom: -185px; }
+ .programme-grove { width: 330px; right: -230px; top: 39%; }
+ .countdown-meadow { width: 510px; right: -280px; bottom: -120px; }
+ .venue-grove { width: 440px; left: -160px; bottom: -90px; }
+ .rsvp-meadow { width: 520px; right: -290px; top: -160px; }
+ .finale-grove { width: 430px; left: -270px; top: -70px; }
+ .family-columns { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 70px; margin-top: 65px; }
+ .family:nth-child(1),.family:nth-child(2) { order: 0; }
+ .family { padding: 0 12px; }
+ .family:nth-child(2) { padding-top: 58px; }
+ .family-blessings { min-height: 110px; margin-bottom: 24px; }
+ .family-flourish { position: absolute; width: 185px; height: 110px; left: 50%; top: 53%; transform: translate(-50%,-50%) rotate(-12deg); margin: 0; opacity: .65; }
+ .family-flourish img { width: 185px; height: 123px; }
+ .parents { font-size: 34px; }
+ .family-name { font-size: 91px; }
+ .family-end { margin-top: 40px; font-size: 26px; }
+ .timeline { max-width: 900px; }
+ .timeline-line { left: 50%; top: 95px; bottom: 140px; }
+ .day-heading { margin: 0 auto 36px; text-align: center; padding: 18px 25px; }
+ .day-heading h3 { font-size: 38px; }
+ .event { display: block; min-height: 270px; padding: 24px 0 50px; }
+ .event-marker { left: 50%; top: 34px; }
+ .event .event-copy { width: 50%; text-align: right; padding: 0 50px 0 0; }
+ .event:nth-child(even) .event-copy { width: 50%; margin-left: 50%; padding: 0 0 0 50px; text-align: left; }
+ .event h3 { font-size: 38px; }
+ .event-copy>p:last-child { font-size: 22px; }
+ .ceremony-art { position: absolute; width: 195px; height: 195px; left: calc(50% + 42px); top: -8px; margin: 0; }
+ .event:nth-child(even) .ceremony-art { left: auto; right: calc(50% + 42px); }
+ .countdown-line { gap: 26px; }
+ .countdown-part { flex-direction: row; align-items: baseline; }
+ .countdown-part strong { font-size: 62px; }
+ .countdown-part>span { font-size: 12px; }
+ .countdown-dot { margin-top: 0; }
+ .venue { min-height: 900px; padding-top: 130px !important; }
+ .venue h2 { font-size: 110px; }
+ .rsvp .section-title { max-width: 780px; font-size: 73px; }
+ .attendance-choice { font-size: 24px; min-height: 70px; }
+ .finale h2 { font-size: 105px; }
+ .language-control { right: 24px; bottom: 24px; }
+ #music-toggle.music-control { left: 24px; bottom: 24px; }
+ html[lang=hi] .hero .names { font-size: 85px; }
+ html[lang=hi] .section-title,html[lang=hi] .invocation .section-title,html[lang=hi] .countdown .section-title { font-size: 47px; }
+ html[lang=hi] .family-name { font-size: 63px; }
+ html[lang=hi] .event h3 { font-size: 32px; }
+ html[lang=hi] .venue h2 { font-size: 74px; }
+ html[lang=hi] .finale h2 { font-size: 75px; }
+}
+@media (prefers-reduced-motion: reduce) {
+ [data-ambient], .music-ripple { animation: none !important; }
+ .motion-ready [data-reveal] { opacity: 1 !important; transform: none !important; }
+ [data-depth] { transform: none !important; will-change: auto; }
+ .timeline-line span { transform: scaleY(1) !important; }
+}
