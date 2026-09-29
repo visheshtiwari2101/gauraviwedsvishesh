@@ -1,24 +1,272 @@
-// Single source of truth for wedding facts, services, assets and translations.
+// Wedding facts and bilingual invitation copy.
 export const wedding = {
- couple:{en:['Vishesh','Gauravi'],hi:['विशेष','गौरवी']}, dates:['2026-12-07','2026-12-08'], countdown:'2026-12-08T14:00:00+05:30',
- venue:{en:"Maya’s Resort",hi:'मायाज़ रिज़ॉर्ट'},city:{en:'Jhansi',hi:'झाँसी'},hashtag:'#VishfullyYoursGaurgeous',
- address:{en:'Infront of Jhansi Empire, Nahar Road, near Guru Harikishan Degree College, Khodan, Brahma Nagar Colony, Jhansi, Uttar Pradesh – 284003',hi:'झाँसी एम्पायर के सामने, नहर रोड, गुरु हरिकिशन डिग्री कॉलेज के पास, खोदन, ब्रह्मा नगर कॉलोनी, झाँसी, उत्तर प्रदेश – 284003'},
- directionsUrl:'https://www.google.com/maps/search/?api=1&query=Maya%27s%20Resort%2C%20Jhansi',
- musicUrl:'https://www.youtube.com/watch?v=5kZAKlUt9G0',
- rsvpEndpoint:'https://script.google.com/macros/s/AKfycbyQFgbJ710h6e7ehfVbtPKtZ_6AkPcxGbwhCg0g7GcxEjJwXI-82F7JFONFooMBYlCU/exec',
- assets:{ganesha:'./assets/ganesha.png',monogram:'./assets/monogram.png'},
- families:[
- {grandparents:{en:['Late Shri Swami Prasad Tiwari','Late Smt. Laddu Bai Tiwari'],hi:['स्व. श्री स्वामी प्रसाद तिवारी','स्व. श्रीमती लड्डू बाई तिवारी']},parents:{en:['Mr. Parashuram Tiwari','Mrs. Indira Tiwari'],hi:['श्री परशुराम तिवारी','श्रीमती इंदिरा तिवारी']},contact:'8770546385'},
- {grandparents:{en:['Brij Bihari Lal Pathak','Late Pushpa Pathak'],hi:['श्री बृज बिहारी लाल पाठक','स्व. श्रीमती पुष्पा पाठक']},parents:{en:['Mr. Deepak Pathak','Mrs. Rashmi Pathak'],hi:['श्री दीपक कुमार पाठक','श्रीमती रश्मि पाठक']},contact:'8989428932'}],
- events:[
- {date:0,time:'11:00 AM',name:{en:'Ganesh Pujan & Mandap Pujan',hi:'गणेश पूजन एवं मंडप पूजन'},note:{en:'An auspicious beginning, with blessings from above.',hi:'मंगल आशीर्वाद के साथ शुभ उत्सव का आरम्भ।'}},
- {date:0,time:'2:00 PM',name:{en:'Haldi',hi:'हल्दी'},note:{en:'A little turmeric, a little laughter, a whole lot of love.',hi:'हल्दी के रंग, अपनों की हँसी और ढेर सारा प्यार।'}},
- {date:0,time:'8:00 PM',name:{en:'Ring Ceremony',hi:'अंगूठी समारोह'},note:{en:'A promise of forever, beneath the evening sky.',hi:'एक प्यारी शाम, जीवन भर के साथ का वादा।'}},
- {date:1,time:'9:00 AM',name:{en:'Baraat',hi:'बारात'},note:{en:'The joy of two families coming together.',hi:'दो परिवारों के मिलन का हर्ष और उल्लास।'}},
- {date:1,time:'11:00 AM',name:{en:'Reception & Lunch',hi:'स्वागत समारोह एवं प्रीतिभोज'},note:{en:'Warm welcomes and a meal shared with loved ones.',hi:'आत्मीय स्वागत और अपनों संग प्रीतिभोज।'}},
- {date:1,time:'2:00 PM',name:{en:'Wedding & Phere',hi:'विवाह एवं फेरे'},note:{en:'Seven sacred steps. A lifetime of togetherness.',hi:'सात फेरे, सात वचन और जीवन भर का साथ।'}}]
+  "couple": {
+    "en": [
+      "Vishesh",
+      "Gauravi"
+    ],
+    "hi": [
+      "विशेष",
+      "गौरवी"
+    ]
+  },
+  "dates": [
+    "2026-12-07",
+    "2026-12-08"
+  ],
+  "countdown": "2026-12-08T14:00:00+05:30",
+  "venue": {
+    "en": "Maya’s Resort",
+    "hi": "मायाज़ रिज़ॉर्ट"
+  },
+  "city": {
+    "en": "Jhansi",
+    "hi": "झाँसी"
+  },
+  "hashtag": "#VishfullyYoursGaurgeous",
+  "address": {
+    "en": "Infront of Jhansi Empire, Nahar Road, near Guru Harikishan Degree College, Khodan, Brahma Nagar Colony, Jhansi, Uttar Pradesh – 284003",
+    "hi": "झाँसी एम्पायर के सामने, नहर रोड, गुरु हरिकिशन डिग्री कॉलेज के पास, खोदन, ब्रह्मा नगर कॉलोनी, झाँसी, उत्तर प्रदेश – 284003"
+  },
+  "directionsUrl": "https://www.google.com/maps/search/?api=1&query=Maya%27s%20Resort%2C%20Jhansi",
+  "musicUrl": "https://www.youtube.com/watch?v=5kZAKlUt9G0",
+  "rsvpEndpoint": "https://script.google.com/macros/s/AKfycbyQFgbJ710h6e7ehfVbtPKtZ_6AkPcxGbwhCg0g7GcxEjJwXI-82F7JFONFooMBYlCU/exec",
+  "assets": {
+    "ganesha": "./assets/ganesha.png",
+    "monogram": "./assets/monogram.png"
+  },
+  "families": [
+    {
+      "grandparents": {
+        "en": [
+          "Late Smt. Laddu Bai Tiwari",
+          "Late Shri Swami Prasad Tiwari"
+        ],
+        "hi": [
+          "स्व. श्रीमती लड्डू बाई तिवारी",
+          "स्व. श्री स्वामी प्रसाद तिवारी"
+        ]
+      },
+      "parents": {
+        "en": [
+          "Mr. Parashuram Tiwari",
+          "Mrs. Indira Tiwari"
+        ],
+        "hi": [
+          "श्री परशुराम तिवारी",
+          "श्रीमती इंदिरा तिवारी"
+        ]
+      },
+      "contact": "8770546385",
+      "additionalContact": "9993232828"
+    }
+  ],
+  "events": [
+    {
+      "date": 0,
+      "time": "11:00 AM",
+      "name": {
+        "en": "Ganesh Pujan & Mandap Pujan",
+        "hi": "गणेश पूजन एवं मंडप पूजन"
+      },
+      "note": {
+        "en": "An auspicious beginning, with blessings from above.",
+        "hi": "मंगल आशीर्वाद के साथ शुभ उत्सव का आरम्भ।"
+      }
+    },
+    {
+      "date": 0,
+      "time": "2:00 PM",
+      "name": {
+        "en": "Haldi",
+        "hi": "हल्दी"
+      },
+      "note": {
+        "en": "A little turmeric, a little laughter, a whole lot of love.",
+        "hi": "हल्दी के रंग, अपनों की हँसी और ढेर सारा प्यार।"
+      }
+    },
+    {
+      "date": 0,
+      "time": "8:00 PM",
+      "name": {
+        "en": "Ring Ceremony",
+        "hi": "अंगूठी समारोह"
+      },
+      "note": {
+        "en": "A promise of forever, beneath the evening sky.",
+        "hi": "एक प्यारी शाम, जीवन भर के साथ का वादा।"
+      }
+    },
+    {
+      "date": 1,
+      "time": "9:00 AM",
+      "name": {
+        "en": "Baraat",
+        "hi": "बारात"
+      },
+      "note": {
+        "en": "The joy of two families coming together.",
+        "hi": "दो परिवारों के मिलन का हर्ष और उल्लास।"
+      }
+    },
+    {
+      "date": 1,
+      "time": "11:00 AM",
+      "name": {
+        "en": "Reception & Lunch",
+        "hi": "स्वागत समारोह एवं प्रीतिभोज"
+      },
+      "note": {
+        "en": "Warm welcomes and a meal shared with loved ones.",
+        "hi": "आत्मीय स्वागत और अपनों संग प्रीतिभोज।"
+      }
+    },
+    {
+      "date": 1,
+      "time": "2:00 PM",
+      "name": {
+        "en": "Wedding & Phere",
+        "hi": "विवाह एवं फेरे"
+      },
+      "note": {
+        "en": "Seven sacred steps. A lifetime of togetherness.",
+        "hi": "सात फेरे, सात वचन और जीवन भर का साथ।"
+      }
+    }
+  ]
 };
-export const content={
- en:{familyBlessings:'With the blessings of',hostSon:'With joy, they welcome you to their son’s wedding.',hostDaughter:'With joy, they welcome you to their daughter’s wedding.',decreaseGuests:'One fewer guest',increaseGuests:'One more guest',languageLabel:'Invitation language',families:'THE TIWARI & PATHAK FAMILIES',openingSubtitle:'A celebration of love, family & forever',openingFootnote:'TWO FAMILIES. ONE BEAUTIFUL BEGINNING.',month:'December',dateRange:'7–8 December 2026',ceremony:'॥ श्री गणेशाय नमः ॥',heroKicker:'With the divine blessings of Lord Ganesha',heroIntro:'With joy in their hearts, the Tiwari and Pathak families invite you to celebrate the wedding of their children',heroEnd:'Two hearts, blessed by the love of two families.',scroll:'SCROLL TO CELEBRATE',invocationKicker:'AN AUSPICIOUS BEGINNING',invocationTitle:'In the grace of the Divine',blessing:'May Lord Ganesha bless this union with harmony, joy and a lifetime of love.',familyKicker:'ROOTED IN LOVE · BLESSED BY FAMILY',familyTitle:'An invitation from our families',familyIntro:'With the divine blessings of Lord Ganesha and hearts filled with joy, the Tiwari and Pathak families invite you to celebrate the sacred union of their beloved son Vishesh and daughter Gauravi.',grandson:'Beloved grandson of',granddaughter:'Beloved granddaughter of',son:'Son of',daughter:'Daughter of',familyEnd:'Your presence and blessings will make this celebration truly complete.',programmeKicker:'TWO DAYS OF LOVE & TRADITION',programmeTitle:'The celebrations',dayTitles:['The joy begins','A beautiful forever'],countdownKicker:'EVERY MOMENT BRINGS US CLOSER',countdownTitle:'Until the sacred vows',countdownLabels:['DAYS','HRS','MIN','SEC'],countdownEnd:'The auspicious moment has arrived.',venueKicker:'WHERE MEMORIES WILL BLOOM',directions:'Get Directions',venueNote:'We look forward to welcoming you.',rsvpKicker:'THE CELEBRATION IS COMPLETE WITH YOU',rsvpTitle:'Bless Us With Your Presence',rsvpIntro:'Your presence is our joy. Kindly let the families know if you will join us to bless this beautiful beginning.',name:'Your name',attendance:'Will you be attending?',choose:'Please select',yes:'Joyfully accept',no:'Regretfully decline',guests:'Number of guests (including you)',message:'A message for the families',optional:'(optional)',submit:'Send your response',submitting:'Sending your response…',success:'Thank you. Your response has been received.',error:'We could not confirm your response. Please contact the families before trying again.',validation:'Please enter your name, choose your attendance and check the number of guests.',contactHeading:'For a little help, or a warm hello',finaleKicker:'WITH BLESSINGS, LOVE & A LITTLE MAGIC',weds:'weds',finaleLove:'Come share the laughter, the rituals and the memories. We cannot wait to welcome you.',finaleFamilies:'With love, the Tiwari and Pathak families',play:'Play',pause:'Pause',playLabel:'Play wedding music',pauseLabel:'Pause wedding music',skip:'Skip to invitation',musicUnavailable:'Music is unavailable. Please try again later.'},
- hi:{familyBlessings:'पूज्य बड़ों के आशीर्वाद से',hostSon:'अपने सुपुत्र के शुभ विवाह में आपका स्नेहपूर्वक स्वागत करते हैं।',hostDaughter:'अपनी सुपुत्री के शुभ विवाह में आपका स्नेहपूर्वक स्वागत करते हैं।',decreaseGuests:'एक अतिथि कम करें',increaseGuests:'एक अतिथि बढ़ाएँ',languageLabel:'आमंत्रण की भाषा',families:'तिवारी एवं पाठक परिवार',openingSubtitle:'प्रेम, परिवार और जीवन भर के साथ का उत्सव',openingFootnote:'दो परिवार। एक मंगलमय शुरुआत।',month:'दिसंबर',dateRange:'7–8 दिसंबर 2026',ceremony:'॥ श्री गणेशाय नमः ॥',heroKicker:'श्री गणेश जी की मंगल कृपा से',heroIntro:'हर्षित मन से तिवारी एवं पाठक परिवार अपने प्रिय बच्चों के शुभ विवाह में आपको सपरिवार सादर आमंत्रित करते हैं',heroEnd:'दो हृदयों का मिलन, दो परिवारों का आशीर्वाद।',scroll:'मंगल उत्सव की ओर',invocationKicker:'शुभ मंगल आरम्भ',invocationTitle:'प्रभु की मंगल कृपा से',blessing:'भगवान श्री गणेश इस नवयुगल के जीवन में प्रेम, सुख और सौहार्द का आशीर्वाद बनाए रखें।',familyKicker:'अपनों का स्नेह · बड़ों का आशीर्वाद',familyTitle:'स्नेहिल आमंत्रण',familyIntro:'श्री गणेश जी की मंगल कृपा और पूज्य बड़ों के आशीर्वाद से तिवारी एवं पाठक परिवार अपने प्रिय सुपुत्र विशेष और सुपुत्री गौरवी के शुभ विवाह में आपको सपरिवार सादर आमंत्रित करते हैं। पधारकर नवयुगल को अपना स्नेह और शुभाशीष दें।',grandson:'प्रिय पौत्र',granddaughter:'प्रिय पौत्री',son:'सुपुत्र',daughter:'सुपुत्री',familyEnd:'आपकी उपस्थिति और शुभाशीष से हमारा उत्सव पूर्ण होगा।',programmeKicker:'प्रेम और परम्परा के दो सुंदर दिन',programmeTitle:'मांगलिक कार्यक्रम',dayTitles:['उत्सव का शुभारम्भ','जीवन भर का साथ'],countdownKicker:'हर पल निकट आता शुभ मुहूर्त',countdownTitle:'सात फेरों की प्रतीक्षा',countdownLabels:['दिन','घंटे','मिनट','सेकंड'],countdownEnd:'शुभ मुहूर्त आ गया है।',venueKicker:'जहाँ यादें महक उठेंगी',directions:'मार्ग देखें',venueNote:'आपके स्वागत की स्नेहिल प्रतीक्षा में।',rsvpKicker:'आपके आने से ही उत्सव की रौनक',rsvpTitle:'पधारें, शुभाशीष दें',rsvpIntro:'आपके आगमन से हमारा उत्सव मंगलमय होगा। कृपया अपनी उपस्थिति की सूचना देकर इस शुभ आरम्भ में सहभागी बनें।',name:'आपका नाम',attendance:'क्या आप पधारेंगे?',choose:'कृपया चुनें',yes:'सहर्ष पधारेंगे',no:'खेद है, नहीं आ पाएँगे',guests:'अतिथियों की संख्या (आप सहित)',message:'परिवारों के लिए संदेश',optional:'(वैकल्पिक)',submit:'अपना उत्तर भेजें',submitting:'आपका उत्तर भेजा जा रहा है…',success:'धन्यवाद। आपकी उपस्थिति का उत्तर हमें प्राप्त हो गया है।',error:'आपके उत्तर की पुष्टि नहीं हो सकी। दोबारा भेजने से पहले कृपया परिवार से संपर्क करें।',validation:'कृपया अपना नाम, उपस्थिति और अतिथियों की सही संख्या भरें।',contactHeading:'संपर्क एवं स्नेहिल संवाद',finaleKicker:'शुभाशीष और स्नेह के साथ',weds:'संग',finaleLove:'आइए, हमारे बच्चों के इस नए सफ़र की खुशियाँ मिलकर मनाएँ। आपके आने की प्रतीक्षा रहेगी।',finaleFamilies:'स्नेह सहित — तिवारी एवं पाठक परिवार',play:'संगीत',pause:'विराम',playLabel:'विवाह संगीत चलाएँ',pauseLabel:'विवाह संगीत रोकें',skip:'आमंत्रण पर जाएँ',musicUnavailable:'अभी संगीत उपलब्ध नहीं है। कृपया बाद में प्रयास करें।'}
+export const content = {
+  "en": {
+    "familyBlessings": "With the blessings of",
+    "decreaseGuests": "One fewer guest",
+    "increaseGuests": "One more guest",
+    "languageLabel": "Invitation language",
+    "openingFootnote": "With warm regards, the Tiwari’s",
+    "month": "December",
+    "dateRange": "7–8 December 2026",
+    "ceremony": "॥ श्री गणेशाय नमः ॥",
+    "heroIntro": "With the divine blessings of Lord Ganesha and hearts filled with joy, we invite you to celebrate the sacred union of our children.",
+    "heroEnd": "We welcome you to share our joy and bless the couple.",
+    "scroll": "SCROLL TO CELEBRATE",
+    "familyKicker": "ROOTED IN LOVE · BLESSED BY FAMILY",
+    "familyTitle": "We would be honoured by your presence",
+    "familyIntro": "With the blessings of the Almighty and all our elders",
+    "familyEnd": "Your presence and blessings will make this celebration truly complete.",
+    "programmeKicker": "TWO DAYS OF LOVE & TRADITION",
+    "programmeTitle": "The celebrations",
+    "dayTitles": [
+      "The joy begins",
+      "A beautiful forever"
+    ],
+    "countdownKicker": "EVERY MOMENT BRINGS US CLOSER",
+    "countdownTitle": "Until the sacred vows",
+    "countdownLabels": [
+      "DAYS",
+      "HRS",
+      "MIN",
+      "SEC"
+    ],
+    "countdownEnd": "The auspicious moment has arrived.",
+    "venueKicker": "WHERE MEMORIES WILL BLOOM",
+    "directions": "Get Directions",
+    "venueNote": "We look forward to welcoming you.",
+    "rsvpKicker": "THE CELEBRATION IS COMPLETE WITH YOU",
+    "rsvpTitle": "Bless Us With Your Presence",
+    "rsvpIntro": "Your presence is our joy. Kindly let us know if you will join us to bless this beautiful beginning.",
+    "name": "Your name",
+    "attendance": "Will you be attending?",
+    "choose": "Please select",
+    "yes": "Joyfully accept",
+    "no": "Regretfully decline",
+    "guests": "Number of guests (including you)",
+    "message": "A message for us",
+    "optional": "(optional)",
+    "submit": "Send your response",
+    "submitting": "Sending your response…",
+    "success": "Thank you. Your response has been received.",
+    "error": "We could not confirm your response. Please contact us before trying again.",
+    "validation": "Please enter your name, choose your attendance and check the number of guests.",
+    "contactHeading": "For a little help, or a warm hello",
+    "contactHosts": "Shri Parashuram Tiwari - Smt. Indira Tiwari",
+    "finaleKicker": "WITH BLESSINGS, LOVE & A LITTLE MAGIC",
+    "weds": "weds",
+    "finaleLove": "Come share the laughter, the rituals and the memories as our beloved Vishesh begins this new chapter with Gauravi. We look forward to welcoming you.",
+    "play": "Play",
+    "pause": "Pause",
+    "playLabel": "Play wedding music",
+    "pauseLabel": "Pause wedding music",
+    "skip": "Skip to invitation",
+    "musicUnavailable": "Music is unavailable. Please try again later.",
+    "familyRequest": "We request the honour of your presence at the wedding celebration of our beloved grandson",
+    "groomParents": "(S/o Smt. Indira Tiwari & Shri Parashuram Tiwari)",
+    "brideParents": "(D/o Smt. Rashmi Pathak & Shri Deepak Pathak)",
+    "union": "with"
+  },
+  "hi": {
+    "familyBlessings": "पूज्य बड़ों के आशीर्वाद से",
+    "decreaseGuests": "एक अतिथि कम करें",
+    "increaseGuests": "एक अतिथि बढ़ाएँ",
+    "languageLabel": "आमंत्रण की भाषा",
+    "openingFootnote": "सादर एवं सस्नेह — आपका तिवारी परिवार",
+    "month": "दिसंबर",
+    "dateRange": "7–8 दिसंबर 2026",
+    "ceremony": "॥ श्री गणेशाय नमः ॥",
+    "heroIntro": "श्री गणेश जी की मंगल कृपा और हर्षित हृदय से हम अपने प्रिय बच्चों के शुभ विवाह में आपको सपरिवार सादर आमंत्रित करते हैं।",
+    "heroEnd": "हमारी खुशियों में सम्मिलित होकर नवयुगल को अपना स्नेह और शुभाशीष दें।",
+    "scroll": "मंगल उत्सव की ओर",
+    "familyKicker": "अपनों का स्नेह · बड़ों का आशीर्वाद",
+    "familyTitle": "आपकी गरिमामयी उपस्थिति की सादर अभिलाषा",
+    "familyIntro": "परमपिता परमेश्वर की कृपा और समस्त पूज्य बड़ों के आशीर्वाद से",
+    "familyEnd": "आपकी उपस्थिति और शुभाशीष से हमारा उत्सव पूर्ण होगा।",
+    "programmeKicker": "प्रेम और परम्परा के दो सुंदर दिन",
+    "programmeTitle": "मांगलिक कार्यक्रम",
+    "dayTitles": [
+      "उत्सव का शुभारम्भ",
+      "जीवन भर का साथ"
+    ],
+    "countdownKicker": "हर पल निकट आता शुभ मुहूर्त",
+    "countdownTitle": "सात फेरों की प्रतीक्षा",
+    "countdownLabels": [
+      "दिन",
+      "घंटे",
+      "मिनट",
+      "सेकंड"
+    ],
+    "countdownEnd": "शुभ मुहूर्त आ गया है।",
+    "venueKicker": "जहाँ यादें महक उठेंगी",
+    "directions": "मार्ग देखें",
+    "venueNote": "आपके स्वागत की स्नेहिल प्रतीक्षा में।",
+    "rsvpKicker": "आपके आने से ही उत्सव की रौनक",
+    "rsvpTitle": "पधारें, शुभाशीष दें",
+    "rsvpIntro": "आपके आगमन से हमारा उत्सव मंगलमय होगा। कृपया अपनी उपस्थिति की सूचना देकर हमें आपके स्वागत का सौभाग्य दें।",
+    "name": "आपका नाम",
+    "attendance": "क्या आप पधारेंगे?",
+    "choose": "कृपया चुनें",
+    "yes": "सहर्ष पधारेंगे",
+    "no": "खेद है, नहीं आ पाएँगे",
+    "guests": "अतिथियों की संख्या (आप सहित)",
+    "message": "हमारे लिए आपका संदेश",
+    "optional": "(वैकल्पिक)",
+    "submit": "अपना उत्तर भेजें",
+    "submitting": "आपका उत्तर भेजा जा रहा है…",
+    "success": "धन्यवाद। आपकी उपस्थिति का उत्तर हमें प्राप्त हो गया है।",
+    "error": "आपके उत्तर की पुष्टि नहीं हो सकी। दोबारा प्रयास करने से पहले कृपया हमसे संपर्क करें।",
+    "validation": "कृपया अपना नाम, उपस्थिति और अतिथियों की सही संख्या भरें।",
+    "contactHeading": "संपर्क एवं स्नेहिल संवाद",
+    "contactHosts": "श्री परशुराम तिवारी - श्रीमती इंदिरा तिवारी",
+    "finaleKicker": "शुभाशीष और स्नेह के साथ",
+    "weds": "संग",
+    "finaleLove": "हमारे प्रिय विशेष और गौरवी के नवजीवन के इस मंगल अवसर पर पधारकर हमारी खुशियों में सहभागी बनें। आपके स्नेहिल आगमन की प्रतीक्षा में।",
+    "play": "संगीत",
+    "pause": "विराम",
+    "playLabel": "विवाह संगीत चलाएँ",
+    "pauseLabel": "विवाह संगीत रोकें",
+    "skip": "आमंत्रण पर जाएँ",
+    "musicUnavailable": "अभी संगीत उपलब्ध नहीं है। कृपया बाद में प्रयास करें।",
+    "familyRequest": "हम अपने प्रिय पौत्र के शुभ विवाह के मंगल अवसर पर आपकी सपरिवार गरिमामयी उपस्थिति की सादर कामना करते हैं",
+    "groomParents": "(सुपुत्र — श्रीमती इंदिरा तिवारी एवं श्री परशुराम तिवारी)",
+    "brideParents": "(सुपुत्री — श्रीमती रश्मि पाठक एवं श्री दीपक कुमार पाठक)",
+    "union": "संग"
+  }
 };

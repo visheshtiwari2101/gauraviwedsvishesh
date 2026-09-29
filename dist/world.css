@@ -426,3 +426,73 @@ body.entering #invitation { pointer-events: none; }
 }
 /* Keep the persistent player mounted without affecting invitation layout. */
 #music-player-wrap { position: fixed; left: -220px; top: 0; width: 200px; height: 200px; pointer-events: none; }
+/* Gracious invitation emphasis within the established typography. */
+.families .grandparents { font-weight: 600; color: var(--wine); font-size: 1.12em; }
+.families .family-name { font-weight: 600; }
+.families .family-name { font-size: clamp(34px,8vw,46px); }
+.families [data-copy=groomParents],.families [data-copy=brideParents] { font-weight: 600; color: var(--wine); }
+.opening-actions button { border: 1px solid #a77c43; box-shadow: 0 4px 0 #62463140,0 0 18px #e3ba6f40,inset 0 1px 0 #fff4d866; font-weight: 600; }
+.opening-actions button:before { background: linear-gradient(115deg,transparent 10%,#ffe6a660 50%,transparent 90%); animation: entry-highlight 3.4s ease-in-out infinite alternate; }
+@keyframes entry-highlight { from { opacity: .25; transform: translateX(-25%); } to { opacity: .8; transform: translateX(25%); } }
+.opening-actions button:active { transform: translateY(3px) scale(.98); box-shadow: 0 1px 0 #62463140,inset 0 2px 5px #51321f30; }
+@media(hover:hover) { .opening-actions button:hover { box-shadow: 0 6px 0 #62463130,0 0 25px #e3ba6f70,inset 0 1px 0 #fff4d866; } }
+@media(prefers-reduced-motion:reduce) { .opening-actions button:before { animation: none; transform: none; } }
+
+.opening-actions button[data-enter=hi] { font-family: var(--devanagari); }
+.opening-actions button[data-enter=en] { font-family: var(--body); }
+/* Two matching, individually tappable contact numbers. */
+.help .contacts>div { flex-direction: column; align-items: center; gap: 0; }
+.help .contacts a { min-height: 48px; justify-content: center; }
+
+.help .contact-hosts { margin: 14px auto 8px; color: var(--wine); font-weight: 600; font-size: 1.12em; text-wrap: balance; }
+/* Opening devotional focus, with the original PNG proportions. */
+.opening:has(.official img) { height: 100dvh; min-height: 0; padding-block: max(48px,env(safe-area-inset-top)) max(18px,env(safe-area-inset-bottom)); }
+.opening-content { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: clamp(6px,1dvh,12px); }
+.opening-content>* { margin: 0 !important; flex: none; }
+.opening .ganesha { width: clamp(170px,26dvh,280px); height: auto; aspect-ratio: 365 / 354; }
+.opening .ganesha img { display: block; height: auto; }
+.ganesha-prayer { text-align: center; color: var(--wine); }
+.ganesha-prayer .devotional { font: 600 clamp(17px,2.3dvh,23px)/1.5 var(--devanagari); margin: 0 0 7px; }
+.ganesha-shloka { font: 400 clamp(12px,1.7dvh,16px)/1.85 var(--devanagari); }
+.hero .ganesha-prayer { margin: 0 auto 24px; }
+.opening:has(.official img) .names { font-size: clamp(34px,5.2dvh,58px); line-height: 1.04; }
+.opening .opening-actions { margin: 0 !important; padding-block: 8px; }
+.opening-actions button { border-color: #e4bc76; box-shadow: 0 4px 0 #62463155,0 0 22px #dab16d65,inset 0 0 0 1px #fff0c87a,inset 0 1px 4px #fff4d855; }
+.opening-actions button:before { background: linear-gradient(115deg,transparent 0%,#ffe9b38c 50%,transparent 100%); animation: invitation-luminous 2.6s ease-in-out infinite alternate; }
+.opening-actions button+button:before { animation-delay: -1.3s; }
+@keyframes invitation-luminous { from { opacity: .2; transform: translateX(-28%); } to { opacity: .85; transform: translateX(28%); } }
+@media(hover:hover) { .opening-actions button:hover { transform: translateY(-3px); border-color: #fff0bc; box-shadow: 0 6px 0 #62463140,0 0 30px #dfb16190,inset 0 0 0 1px #fff0c880; } }
+.opening-actions button:active { transform: translateY(3px) scale(.97); box-shadow: 0 1px 0 #62463140,inset 0 2px 6px #51321f40; }
+@media(max-width:767px) {
+ .opening-content { gap: clamp(5px,.9dvh,9px); }
+ .opening .ganesha { width: clamp(150px,25dvh,235px); }
+ .opening:has(.official img) .names { font-size: clamp(32px,4.7dvh,44px); }
+ .opening .ganesha-prayer .devotional { margin-bottom: 5px; }
+ .opening .opening-actions { width: min(260px,100%); }
+}
+@media(max-height:650px) {
+ .opening:has(.official img) { padding-block: 18px 10px; }
+ .opening-content { gap: 4px; }
+ .opening .ganesha { width: 22dvh; }
+ .opening:has(.official img) .names { font-size: 4.6dvh; }
+ .opening .opening-actions { display: flex; gap: 8px; width: auto; padding-block: 4px; }
+ .opening-actions button { padding: 8px 10px; font-size: 11px; }
+}
+@media(prefers-reduced-motion:reduce) { .opening-actions button:before { animation: none; transform: none; opacity: .4; } }
+/* Final Opening proportions and full-label language pill. */
+.opening .ganesha { width: clamp(230px,37dvh,370px); height: auto; aspect-ratio: auto; }
+.opening:has(.official img) .names { flex-direction: row; flex-wrap: nowrap; justify-content: center; gap: .17em; white-space: nowrap; font-size: clamp(30px,5vw,58px); }
+.opening:has(.official img) .names .opening-amp { font-size: .46em; }
+.language-control { width: 156px; min-width: 156px; height: 50px; border-radius: 28px; padding: 5px 8px; gap: 5px; right: max(12px,env(safe-area-inset-right)); }
+.language-control:before { border-radius: 25px; }
+.language-control>span { font-size: 14px; }
+.language-control [data-language] { min-width: 55px; height: 36px; padding-inline: 7px; border-radius: 19px; }
+.language-control [lang=hi] { font-family: var(--devanagari); }
+@media(max-width:767px) {
+ .opening .ganesha { width: min(35dvh,76vw,310px); }
+ .opening:has(.official img) .names { font-size: clamp(28px,8.3vw,36px); }
+}
+@media(max-height:650px) {
+ .opening .ganesha { width: 31dvh; }
+ .opening:has(.official img) .names { font-size: clamp(24px,6dvh,34px); }
+}

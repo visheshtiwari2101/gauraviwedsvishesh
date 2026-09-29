@@ -45,3 +45,15 @@ Prepared the existing YouTube IFrame player silently before entry, removed the d
 Hindi joining text uses संग; Hindi parent/contact data now uses श्री दीपक कुमार पाठक. English wording and supplied artwork are unchanged.
 
 Build and eleven regression tests passed, including silent preparation, delayed readiness, autoplay-block recovery, repeated ending events and authoritative manual pause. Browser fixtures at 390x844 and 1280x900 verified one persistent player, looping, pause across language changes, the new Hindi strings and unchanged English. Real YouTube iframe loading was attempted in both viewport sizes, but the embedded player did not produce a confirmed ready/playing response in this local browser; audible playback and physical-phone behavior remain unverified. Reference: https://developers.google.com/youtube/iframe_api_reference
+
+## Groom-side invitation — local review
+
+Converted the opening, invitation, RSVP wording, closing captions and contact section to the Tiwari family's perspective. The main invitation now lists the late Tiwari grandparents in the requested order, requests attendance at their beloved grandson's wedding, and identifies Vishesh and Gauravi with their parent lines. Bride-side grandparents, host section and telephone contact were removed; Pathak names remain only in Gauravi's parent identification. English and Hindi are updated, including opening fallback HTML and metadata.
+
+Build and eleven regression tests pass. Browser DOM checks confirmed both language versions, one Tiwari phone link and no checked text overflow at narrow/mobile widths, including an actual 360px Hindi layout. Wedding facts and service/asset URLs were compared against the existing committed version and are unchanged. No CSS, garden/motion, music or RSVP transport changes. Changes are uncommitted and unpushed as requested.
+
+## Gracious wording and Hindi-first entry — local review
+
+Combined the Ganesha blessing and invitation into one English/Hindi sentence referring to Vishesh and Gauravi as our children. Warmed the groom-side signoffs and invitation heading, removed the separate invocation section, and pointed the scroll cue to the family invitation. Strengthened names using existing fonts and wine color. Added +91 9993232828 as a second clickable contact without assigning it to an unspecified person. Hindi now precedes English in entry buttons and the language pill. Entry buttons use warmer captions and a stronger restrained highlight/depth treatment, with reduced-motion suppression.
+
+Build and eleven tests pass. Browser checks confirmed both translations, removal of the invocation section, the two correct tel links and Hindi-first ordering. At 360/375/390/412/430px, checked content had no horizontal overflow or clipping. Opening content fits without scrolling at the tested narrow size. All changes remain uncommitted and unpushed.
