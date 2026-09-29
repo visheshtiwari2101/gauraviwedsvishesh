@@ -19,7 +19,7 @@ Open http://127.0.0.1:4173/. Deploy the contents of `dist/` to a static HTTPS ho
 - `dist/`: deployable website and optimized artwork.
 - `dist/config.js`: wedding facts, English/Hindi text and existing service URLs.
 - `dist/motion.js`: cached scroll geometry, bounded visible wind, entrances and reduced-motion handling.
-- `dist/drift.js`: five reusable falling botanical fragments with randomized type, position, scale and curved CSS trajectories. Paused in hidden tabs and under reduced motion; no timers or per-frame JavaScript.
+- `dist/drift.js`: fifteen reusable falling botanical fragments with randomized type, position, scale and curved CSS trajectories. Paused in hidden tabs and under reduced motion; no timers or per-frame JavaScript.
 - `artwork-source/`: original generated decorative assets. Supplied Ganesha and monogram remain unchanged; their hashes are verified by the build.
 - `tests/`: regression checks for motion scheduling, falling-element bounds/accessibility, RSVP transport/validation, translations and countdown.
 
@@ -27,7 +27,7 @@ Open http://127.0.0.1:4173/. Deploy the contents of `dist/` to a static HTTPS ho
 
 Individual plants use varied wind periods, negative delays and rotations. Current side leaf amplitudes are approximately 9–12.9 degrees; flowers 9–12.2 degrees. Parallax remains a separate transform layer. Visible vegetation is capped at 10 plants on mobile, 26 desktop and 4 economical devices, balanced across both sides and between leaves/flowers. Other ambient motion has its own small budget. Offscreen elements pause.
 
-Falling fragments are bounded to five DOM elements, with different depths and fall speeds, curved lateral drift, rotation and a brief upward gust. Their appearances and paths change between falls without adding DOM nodes. Bird groups, clouds and the existing text entrances remain intact. Static warm radial auras avoid animated blur or filters.
+Falling fragments are bounded to fifteen DOM elements, with different depths and fall speeds, curved lateral drift, rotation and a brief upward gust. Their appearances and paths change between falls without adding DOM nodes. Bird groups, clouds and the existing text entrances remain intact. Static warm radial auras avoid animated blur or filters.
 
 ## Verification
 

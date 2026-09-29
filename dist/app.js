@@ -70,7 +70,27 @@ updateCountdown();setInterval(updateCountdown,1000);setLanguage('en');
 document.querySelector('.language-control').addEventListener('click',()=>setLanguage(language==='en'?'hi':'en'));
 document.querySelectorAll('[data-enter]').forEach(b=>b.addEventListener('click',()=>enter(b.dataset.enter)));
 document.querySelector('.skip-link').addEventListener('click',e=>{if(!entered){e.preventDefault();enter(language,false);}});
-function enter(lang,withMedia=true){if(entered)return;setLanguage(lang);entered=true;main.hidden=false;document.querySelector('.language-control').hidden=false;document.querySelector('#music-toggle').hidden=false;document.body.classList.add('entered');window.scrollTo({top:0,behavior:'instant'});main.focus({preventScroll:true});if(withMedia){musicWanted=true;startMusic();}if(!reducedMotion.matches)main.animate([{opacity:0},{opacity:1}],{duration:1000,easing:'ease-out'});motion.start();}
+async function enter(lang,withMedia=true){
+ if(entered)return;
+ setLanguage(lang);entered=true;
+ const opening=document.querySelector('.opening');
+ document.body.classList.add('entering');
+ opening.inert=true;main.hidden=false;
+ window.scrollTo({top:0,behavior:'instant'});
+ if(withMedia){musicWanted=true;startMusic();}
+ motion.start();
+ if(!reducedMotion.matches){
+  const exit=opening.animate([{opacity:1,transform:'scale(1)'},{opacity:0,transform:'scale(1.025)'}],{duration:720,easing:'cubic-bezier(.22,.61,.36,1)',fill:'forwards'});
+  const entrance=main.animate([{opacity:0},{opacity:1}],{duration:850,easing:'ease-out'});
+  const finish=()=>{exit.finish();entrance.finish();};
+  reducedMotion.addEventListener('change',finish,{once:true});
+  await exit.finished.catch(()=>{});
+  reducedMotion.removeEventListener('change',finish);
+ }
+ document.body.classList.add('entered');document.body.classList.remove('entering');
+ document.querySelector('.language-control').hidden=false;document.querySelector('#music-toggle').hidden=false;
+ main.focus({preventScroll:true});motion.refresh();
+}
 let acceptedGuests=1;
 const guestInput=document.querySelector('#guests');
 function updateGuestControls() {

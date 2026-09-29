@@ -1,16 +1,16 @@
-// Five reusable fragments; randomness changes only at the end of each fall.
+// Fifteen reusable fragments: three times the previous density, without timers.
 // CSS handles the motion, with no timers, scroll handlers or per-frame JS.
 export function mountFallingBotanicals() {
   const media=matchMedia('(prefers-reduced-motion: reduce)');
   const fragments=[];
   const kinds=['leaf','bougainvillea','mogra','bougainvillea','fragment','marigold'];
-  for(let i=0;i<5;i++) {
+  for(let i=0;i<15;i++) {
     const el=document.createElement('div');
     el.className=`falling-botanical falling-depth-${i%3}`;
     el.setAttribute('aria-hidden','true');
     el.innerHTML='<span></span>';
-    el.style.setProperty('--fall-time',`${[25,21,18,23,20][i]}s`);
-    el.style.setProperty('--fall-delay',`${[-16,-5,-11,-21,-8][i]}s`);
+    el.style.setProperty('--fall-time',`${[25,21,18,23,20][i%5]}s`);
+    el.style.setProperty('--fall-delay',`${-(i+.5)*1.53}s`);
     const renew=()=>{
       el.dataset.kind=kinds[Math.floor(Math.random()*kinds.length)];
       el.style.setProperty('--start-x',`${8+Math.random()*82}vw`);
