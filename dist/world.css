@@ -496,3 +496,6 @@ body.entering #invitation { pointer-events: none; }
  .opening .ganesha { width: 31dvh; }
  .opening:has(.official img) .names { font-size: clamp(24px,6dvh,34px); }
 }
+/* Keep the persistent controls aligned, with language directly below music. */
+.language-control { right: max(16px,env(safe-area-inset-right)); bottom: max(16px,env(safe-area-inset-bottom)); }
+#music-toggle.music-control { right: max(16px,env(safe-area-inset-right)); bottom: calc(max(16px,env(safe-area-inset-bottom)) + 64px); }
