@@ -39,26 +39,25 @@ export const wedding = {
     {
       "grandparents": {
         "en": [
-          "Late Smt. Laddu Bai Tiwari",
-          "Late Shri Swami Prasad Tiwari"
+          "Shri Brij Bihari Lal Pathak",
+          "Late Smt. Pushpa Pathak"
         ],
         "hi": [
-          "स्व. श्रीमती लड्डू बाई तिवारी",
-          "स्व. श्री स्वामी प्रसाद तिवारी"
+          "श्री बृज बिहारी लाल पाठक",
+          "स्व. श्रीमती पुष्पा पाठक"
         ]
       },
       "parents": {
         "en": [
-          "Mr. Parashuram Tiwari",
-          "Mrs. Indira Tiwari"
+          "Mr. Deepak Pathak",
+          "Mrs. Rashmi Pathak"
         ],
         "hi": [
-          "श्री परशुराम तिवारी",
-          "श्रीमती इंदिरा तिवारी"
+          "श्री दीपक कुमार पाठक",
+          "श्रीमती रश्मि पाठक"
         ]
       },
-      "contact": "8770546385",
-      "additionalContact": "9993232828"
+      "contact": "8989428932"
     }
   ],
   "events": [
@@ -106,8 +105,8 @@ export const wedding = {
         "hi": "बारात"
       },
       "note": {
-        "en": "The joy of two families coming together.",
-        "hi": "दो परिवारों के मिलन का हर्ष और उल्लास।"
+        "en": "With joy, we welcome Vishesh and the baraat.",
+        "hi": "विशेष और बारात के स्नेहिल स्वागत का शुभ अवसर।"
       }
     },
     {
@@ -142,11 +141,11 @@ export const content = {
     "decreaseGuests": "One fewer guest",
     "increaseGuests": "One more guest",
     "languageLabel": "Invitation language",
-    "openingFootnote": "With warm regards, the Tiwari’s",
+    "openingFootnote": "With warm regards, the Pathak family",
     "month": "December",
     "dateRange": "7–8 December 2026",
     "ceremony": "॥ श्री गणेशाय नमः ॥",
-    "heroIntro": "With the divine blessings of Lord Ganesha and hearts filled with joy, we invite you to celebrate the sacred union of our children.",
+    "heroIntro": "With the divine blessings of Lord Ganesha and hearts filled with joy, we, the Pathak family, invite you to celebrate the wedding of our beloved Gauravi and Vishesh.",
     "heroEnd": "We welcome you to share our joy and bless the couple.",
     "scroll": "SCROLL TO CELEBRATE",
     "familyKicker": "ROOTED IN LOVE · BLESSED BY FAMILY",
@@ -173,14 +172,14 @@ export const content = {
     "venueNote": "We look forward to welcoming you.",
     "rsvpKicker": "THE CELEBRATION IS COMPLETE WITH YOU",
     "rsvpTitle": "Bless Us With Your Presence",
-    "rsvpIntro": "Your presence is our joy. Kindly let us know if you will join us to bless this beautiful beginning.",
+    "rsvpIntro": "The Pathak family looks forward to welcoming you. Kindly let us know if you will join us to bless Gauravi and Vishesh as they begin their life together.",
     "name": "Your name",
     "attendance": "Will you be attending?",
     "choose": "Please select",
     "yes": "Joyfully accept",
     "no": "Regretfully decline",
     "guests": "Number of guests (including you)",
-    "message": "A message for us",
+    "message": "Your message for the Pathak family",
     "optional": "(optional)",
     "submit": "Send your response",
     "submitting": "Sending your response…",
@@ -188,31 +187,32 @@ export const content = {
     "error": "We could not confirm your response. Please contact us before trying again.",
     "validation": "Please enter your name, choose your attendance and check the number of guests.",
     "contactHeading": "For a little help, or a warm hello",
-    "contactHosts": "Shri Parashuram Tiwari - Smt. Indira Tiwari",
+    "contactHosts": "Shri Deepak Pathak & Smt. Rashmi Pathak",
     "finaleKicker": "WITH BLESSINGS, LOVE & A LITTLE MAGIC",
     "weds": "weds",
-    "finaleLove": "Come share the laughter, the rituals and the memories as our beloved Vishesh begins this new chapter with Gauravi. We look forward to welcoming you.",
+    "finaleLove": "Come share the laughter, the rituals and the memories as our beloved Gauravi begins this new chapter with Vishesh. With love, the Pathak family.",
     "play": "Play",
     "pause": "Pause",
     "playLabel": "Play wedding music",
     "pauseLabel": "Pause wedding music",
     "skip": "Skip to invitation",
     "musicUnavailable": "Music is unavailable. Please try again later.",
-    "familyRequest": "We request the honour of your presence at the wedding celebration of our beloved grandson",
+    "familyRequest": "We request the honour of your presence at the wedding of our beloved daughter",
     "groomParents": "(S/o Smt. Indira Tiwari & Shri Parashuram Tiwari)",
     "brideParents": "(D/o Smt. Rashmi Pathak & Shri Deepak Pathak)",
-    "union": "with"
+    "union": "with",
+    "familyHosts": "Deepak Pathak & Rashmi Pathak"
   },
   "hi": {
     "familyBlessings": "पूज्य बड़ों के आशीर्वाद से",
     "decreaseGuests": "एक अतिथि कम करें",
     "increaseGuests": "एक अतिथि बढ़ाएँ",
     "languageLabel": "आमंत्रण की भाषा",
-    "openingFootnote": "सादर एवं सस्नेह — आपका तिवारी परिवार",
+    "openingFootnote": "सादर एवं सस्नेह — आपका पाठक परिवार",
     "month": "दिसंबर",
     "dateRange": "7–8 दिसंबर 2026",
     "ceremony": "॥ श्री गणेशाय नमः ॥",
-    "heroIntro": "श्री गणेश जी की मंगल कृपा और हर्षित हृदय से हम अपने प्रिय बच्चों के शुभ विवाह में आपको सपरिवार सादर आमंत्रित करते हैं।",
+    "heroIntro": "श्री गणेश जी की मंगल कृपा और हर्षित हृदय से हम, पाठक परिवार, अपनी प्रिय गौरवी और विशेष के शुभ विवाह में आपको सपरिवार सादर आमंत्रित करते हैं।",
     "heroEnd": "हमारी खुशियों में सम्मिलित होकर नवयुगल को अपना स्नेह और शुभाशीष दें।",
     "scroll": "मंगल उत्सव की ओर",
     "familyKicker": "अपनों का स्नेह · बड़ों का आशीर्वाद",
@@ -239,14 +239,14 @@ export const content = {
     "venueNote": "आपके स्वागत की स्नेहिल प्रतीक्षा में।",
     "rsvpKicker": "आपके आने से ही उत्सव की रौनक",
     "rsvpTitle": "पधारें, शुभाशीष दें",
-    "rsvpIntro": "आपके आगमन से हमारा उत्सव मंगलमय होगा। कृपया अपनी उपस्थिति की सूचना देकर हमें आपके स्वागत का सौभाग्य दें।",
+    "rsvpIntro": "पाठक परिवार आपके स्नेहिल स्वागत की प्रतीक्षा में है। गौरवी और विशेष को शुभाशीष देने के लिए कृपया अपने आगमन की सूचना दें।",
     "name": "आपका नाम",
     "attendance": "क्या आप पधारेंगे?",
     "choose": "कृपया चुनें",
     "yes": "सहर्ष पधारेंगे",
     "no": "खेद है, नहीं आ पाएँगे",
     "guests": "अतिथियों की संख्या (आप सहित)",
-    "message": "हमारे लिए आपका संदेश",
+    "message": "पाठक परिवार के लिए आपका संदेश",
     "optional": "(वैकल्पिक)",
     "submit": "अपना उत्तर भेजें",
     "submitting": "आपका उत्तर भेजा जा रहा है…",
@@ -254,19 +254,20 @@ export const content = {
     "error": "आपके उत्तर की पुष्टि नहीं हो सकी। दोबारा प्रयास करने से पहले कृपया हमसे संपर्क करें।",
     "validation": "कृपया अपना नाम, उपस्थिति और अतिथियों की सही संख्या भरें।",
     "contactHeading": "संपर्क एवं स्नेहिल संवाद",
-    "contactHosts": "श्री परशुराम तिवारी - श्रीमती इंदिरा तिवारी",
+    "contactHosts": "श्री दीपक कुमार पाठक एवं श्रीमती रश्मि पाठक",
     "finaleKicker": "शुभाशीष और स्नेह के साथ",
     "weds": "संग",
-    "finaleLove": "हमारे प्रिय विशेष और गौरवी के नवजीवन के इस मंगल अवसर पर पधारकर हमारी खुशियों में सहभागी बनें। आपके स्नेहिल आगमन की प्रतीक्षा में।",
+    "finaleLove": "हमारी प्रिय गौरवी और विशेष के नवजीवन के इस मंगल अवसर पर पधारकर हमारी खुशियों में सहभागी बनें। स्नेह सहित — पाठक परिवार।",
     "play": "संगीत",
     "pause": "विराम",
     "playLabel": "विवाह संगीत चलाएँ",
     "pauseLabel": "विवाह संगीत रोकें",
     "skip": "आमंत्रण पर जाएँ",
     "musicUnavailable": "अभी संगीत उपलब्ध नहीं है। कृपया बाद में प्रयास करें।",
-    "familyRequest": "हम अपने प्रिय पौत्र के शुभ विवाह के मंगल अवसर पर आपकी सपरिवार गरिमामयी उपस्थिति की सादर कामना करते हैं",
+    "familyRequest": "हम अपनी प्रिय सुपुत्री के शुभ विवाह के मंगल अवसर पर आपकी सपरिवार गरिमामयी उपस्थिति की सादर कामना करते हैं",
     "groomParents": "(सुपुत्र — श्रीमती इंदिरा तिवारी एवं श्री परशुराम तिवारी)",
     "brideParents": "(सुपुत्री — श्रीमती रश्मि पाठक एवं श्री दीपक कुमार पाठक)",
-    "union": "संग"
+    "union": "संग",
+    "familyHosts": "श्री दीपक कुमार पाठक एवं श्रीमती रश्मि पाठक"
   }
 };
