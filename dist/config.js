@@ -2,12 +2,12 @@
 export const wedding = {
   "couple": {
     "en": [
-      "Vishesh",
-      "Gauravi"
+      "Gauravi",
+      "Vishesh"
     ],
     "hi": [
-      "विशेष",
-      "गौरवी"
+      "गौरवी",
+      "विशेष"
     ]
   },
   "dates": [
@@ -57,7 +57,8 @@ export const wedding = {
           "श्रीमती रश्मि पाठक"
         ]
       },
-      "contact": "8989428932"
+      "contact": "8989428932",
+      "additionalContact": "7905195659"
     }
   ],
   "events": [
@@ -105,8 +106,8 @@ export const wedding = {
         "hi": "बारात"
       },
       "note": {
-        "en": "With joy, we welcome Vishesh and the baraat.",
-        "hi": "विशेष और बारात के स्नेहिल स्वागत का शुभ अवसर।"
+        "en": "With hearts full of joy, we warmly welcome the baraat to our family celebration.",
+        "hi": "हर्षित हृदय और स्नेह के साथ हम अपने परिवार के इस मंगल उत्सव में बारात का हार्दिक स्वागत करते हैं।"
       }
     },
     {
@@ -137,7 +138,6 @@ export const wedding = {
 };
 export const content = {
   "en": {
-    "familyBlessings": "With the blessings of",
     "decreaseGuests": "One fewer guest",
     "increaseGuests": "One more guest",
     "languageLabel": "Invitation language",
@@ -200,11 +200,9 @@ export const content = {
     "familyRequest": "We request the honour of your presence at the wedding of our beloved daughter",
     "groomParents": "(S/o Smt. Indira Tiwari & Shri Parashuram Tiwari)",
     "brideParents": "(D/o Smt. Rashmi Pathak & Shri Deepak Pathak)",
-    "union": "with",
-    "familyHosts": "Deepak Pathak & Rashmi Pathak"
+    "union": "with"
   },
   "hi": {
-    "familyBlessings": "पूज्य बड़ों के आशीर्वाद से",
     "decreaseGuests": "एक अतिथि कम करें",
     "increaseGuests": "एक अतिथि बढ़ाएँ",
     "languageLabel": "आमंत्रण की भाषा",
@@ -267,7 +265,6 @@ export const content = {
     "familyRequest": "हम अपनी प्रिय सुपुत्री के शुभ विवाह के मंगल अवसर पर आपकी सपरिवार गरिमामयी उपस्थिति की सादर कामना करते हैं",
     "groomParents": "(सुपुत्र — श्रीमती इंदिरा तिवारी एवं श्री परशुराम तिवारी)",
     "brideParents": "(सुपुत्री — श्रीमती रश्मि पाठक एवं श्री दीपक कुमार पाठक)",
-    "union": "संग",
-    "familyHosts": "श्री दीपक कुमार पाठक एवं श्रीमती रश्मि पाठक"
+    "union": "संग"
   }
 };
