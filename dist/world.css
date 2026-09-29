@@ -388,3 +388,39 @@ body.entering #invitation { pointer-events: none; }
  .garden-rail.right .garden-piece:not(.flower-piece) { right: 18px; }
 }
 @media(min-width:701px) { body:not(.entered):not(.entering) { height: auto; overflow: auto; } }
+/* Focused denser mobile garden and complementary botanical closing. */
+@media(max-width:700px) {
+ .garden-rail.middle:before { background-image: url('./assets/connecting-vines-mobile.svg'); opacity: .95; }
+ .garden-sway[data-breeze-side][data-ambient] { animation-name: mobile-garden-wind; transform-origin: 50% 75%; }
+ .garden-sway[data-breeze-side=right] { animation-direction: alternate-reverse; }
+ @keyframes mobile-garden-wind {
+  from { transform: translate3d(-4px,3px,0) rotate(calc(var(--bend,12deg)*-1.65)); }
+  to { transform: translate3d(5px,-4px,0) rotate(calc(var(--bend,12deg)*1.65)); }
+ }
+}
+.closing-garden { position: relative; width: 100%; height: 260px; pointer-events: none; overflow: clip; z-index: 1; }
+.closing-garden:before { content: ''; position: absolute; bottom: 25px; left: 8%; right: 8%; height: 74px; border-bottom: 1px solid #89916a80; border-radius: 0 0 50% 50%; }
+.closing-sprig { position: absolute; left: clamp(4%,var(--x),calc(100% - 90px)); bottom: calc(-10px + var(--rise)); width: 82px; height: 82px; }
+.closing-sprig:nth-child(3n) { width: 66px; height: 66px; }
+.closing-sprig:nth-child(even) { opacity: .75; }
+.closing-garden .garden-sprite { transform: rotate(var(--angle)) scaleX(var(--flip)); }
+@media(min-width:701px) {
+ .closing-garden { height: 340px; }
+ .closing-sprig { width: 145px; height: 145px; }
+ .closing-sprig:nth-child(3n) { width: 120px; height: 120px; }
+}
+@media(prefers-reduced-motion:reduce) { .garden-sway[data-breeze-side] { animation: none !important; } }
+@media(max-width:700px) {
+ .finale-content { width: 100%; padding-inline: 36px; }
+ .journey .finale { padding-bottom: 170px !important; }
+}
+
+.journey .help { padding-bottom: 28px; }
+/* Mobile closing bed: one continuous horizontal row, below the contacts. */
+@media(max-width:700px) {
+ .closing-garden { height: 116px; display: grid; grid-template-columns: repeat(15,minmax(0,1fr)); align-items: end; padding: 16px 32px 14px; }
+ .closing-garden:before { display: none; }
+ .closing-sprig,.closing-sprig:nth-child(3n) { position: relative; left: auto; bottom: auto; width: 60px; height: 60px; justify-self: center; }
+ .closing-sprig:nth-child(3n) { width: 54px; height: 54px; }
+ .closing-garden .garden-sprite { transform: rotate(calc(var(--angle)*.3)) scaleX(var(--flip)); }
+}

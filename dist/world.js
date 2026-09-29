@@ -16,7 +16,7 @@ export function mountGarden(root) {
   const compact = matchMedia('(max-width: 700px)').matches;
   for (const side of ['left','right']) {
     const seed = side === 'left' ? 0 : 7;
-    for (const [depth, count] of [['distant',compact?24:49],['middle',compact?48:83],['foreground',compact?16:23]]) {
+    for (const [depth, count] of [['distant',compact?20:40],['middle',compact?40:68],['foreground',compact?13:19]]) {
       markup += `<div class="garden-rail ${side} ${depth}">`;
       for (let i=0;i<count;i++) {
         const n=i+seed;
@@ -34,7 +34,7 @@ export function mountGarden(root) {
   world.innerHTML=markup;
   for(const side of ['left','right']) {
     const rail=world.querySelector(`.${side}.middle`);
-    const flowers=compact?64:96;
+    const flowers=compact?52:78;
     for(let i=0;i<flowers;i++) {
       const type=i%6<4?'bougainvillea':i%6===4?'tile-1':'tile-4';
       rail.insertAdjacentHTML('beforeend',`<div class="garden-piece flower-piece" ${!compact||i%8===0?'data-depth=".11"':''} style="top:${(i+.3+(side==='right'?.4:0))*100/flowers}%;--size:${51+i%4*7}px;--angle:${-18+i%5*9}deg;--flip:${side==='left'?1:-1};--breeze:${6+(i+(side==='right'?2:0))%7}s;--delay:-${(i+(side==='right'?4:0))%13}s;--bend:${9+i%3*1.6}deg"><div class="garden-sway" data-breeze-side="${side}" data-ambient="flower"><div class="garden-sprite ${type}"></div></div></div>`);
@@ -54,6 +54,15 @@ export function mountGarden(root) {
   heroToran.querySelectorAll('[data-opening-breeze]').forEach(el=>{el.removeAttribute('data-opening-breeze');el.dataset.ambient='vine';});
   heroToran.querySelectorAll('.toran-piece').forEach((el,i)=>el.dataset.depth=String(i%2?.035:.08));
   root.querySelector('.hero').prepend(heroToran);
+  // A low, rising garden bowl closes the invitation, rather than repeating the canopy.
+  const closing=document.createElement('div');
+  closing.className='closing-garden';closing.setAttribute('aria-hidden','true');
+  closing.innerHTML=Array.from({length:15},(_,i)=>{
+    const edge=Math.abs(i-7)/7;
+    const tile=i%5===0?'bougainvillea':`tile-${[0,1,4,3,1,5][i%6]}`;
+    return `<div class="closing-sprig" data-depth="${i%2?.06:.12}" style="--x:${i*100/14}%;--rise:${Math.round(edge*edge*130)}px;--angle:${-28+i*3}deg;--flip:${i%2?-1:1};--breeze:${8+i%7}s;--delay:-${i%11}s;--bend:${12+i%4*2}deg"><div class="garden-sway" data-ambient="${i%6===5?'bird':'flower'}"><div class="garden-sprite ${tile}"></div></div></div>`;
+  }).join('');
+  root.querySelector('.journey').append(closing);
   world.querySelectorAll('.middle .garden-sprite').forEach((el,i)=>{if(i%11===3)el.classList.add('bougainvillea');});
   const afternoon=atmosphere.querySelector('.sky-afternoon'), sunset=atmosphere.querySelector('.sky-sunset');
   let lastLight=-1;
