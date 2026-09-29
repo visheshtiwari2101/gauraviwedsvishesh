@@ -7,13 +7,15 @@ export function createInvitationMotion(root, reducedMotion, updateAtmosphere = (
   const activeLayers = new Set(), activeReveals = new Set(), ambientVisible = new Set();
   const finished = new WeakSet();
   const entrances = new Set();
+  const layerRecords = new Map(), revealRecords = new Map();
+  let runningAmbient = new Set();
   let pageHeight = 1;
   let layers = [], reveals = [], ambient = [], frame = 0, needsMeasure = true, viewport = innerHeight, viewportWidth = innerWidth, timeline, timelineTop = 0, timelineHeight = 1, enabled = false;
   const clamp = value => Math.max(0, Math.min(1, value));
   const documentTop = el => { let top = 0; for (let node = el; node; node = node.offsetParent) top += node.offsetTop; return top; };
   const layerObserver = new IntersectionObserver(entries => {
     for (const entry of entries) {
-      const record = layers.find(item => item.el === entry.target);
+      const record = layerRecords.get(entry.target);
       if (!record) continue;
       if (entry.isIntersecting) activeLayers.add(record); else activeLayers.delete(record);
       record.el.classList.toggle('depth-active', entry.isIntersecting && !reducedMotion.matches && !economical);
@@ -22,7 +24,7 @@ export function createInvitationMotion(root, reducedMotion, updateAtmosphere = (
   }, { rootMargin: '120px 0px' });
   const revealObserver = new IntersectionObserver(entries => {
     for (const entry of entries) {
-      const record = reveals.find(item => item.el === entry.target);
+      const record = revealRecords.get(entry.target);
       if (!record) continue;
       if (entry.isIntersecting) activeReveals.add(record); else activeReveals.delete(record);
     }
@@ -37,7 +39,7 @@ export function createInvitationMotion(root, reducedMotion, updateAtmosphere = (
 
   function updateAmbient() {
     const stopped=reducedMotion.matches||document.hidden;
-    const plantBudget=stopped?0:economical?4:compact.matches?14:26;
+    const plantBudget=stopped?0:economical?4:compact.matches?10:26;
     const visible=[...ambientVisible];
     const plants=visible.filter(el=>el.dataset.breezeSide);
     const sidePlants=side=>{
@@ -51,7 +53,9 @@ export function createInvitationMotion(root, reducedMotion, updateAtmosphere = (
     const other=visible.filter(el=>!el.dataset.breezeSide);
     const priority=el=>el.dataset.ambient==='cloud'?0:el.dataset.ambient==='flock'?1:String(el.dataset.ambient||'').startsWith('ceremony-')?2:3;
     const running=new Set([...balanced.slice(0,plantBudget),...other.sort((a,b)=>priority(a)-priority(b)).slice(0,stopped?0:economical?2:5)]);
-    for(const el of ambient)el.classList.toggle('ambient-running',running.has(el));
+    for(const el of runningAmbient)if(!running.has(el))el.classList.toggle('ambient-running',false);
+    for(const el of running)if(!runningAmbient.has(el))el.classList.toggle('ambient-running',true);
+    runningAmbient=running;
   }
 
   function measure() {
@@ -75,7 +79,8 @@ export function createInvitationMotion(root, reducedMotion, updateAtmosphere = (
     const maxTravel = compact.matches ? 12 : 34;
     for (const item of activeLayers) {
       const shift = Math.max(-maxTravel, Math.min(maxTravel, (y + viewport / 2 - item.top - item.height / 2) * item.speed * multiplier));
-      item.el.style.transform = `translate3d(${(shift * .18).toFixed(2)}px,${shift.toFixed(2)}px,0)`;
+      const transform = `translate3d(${(shift * .18).toFixed(2)}px,${shift.toFixed(2)}px,0)`;
+      if(item.transform!==transform){item.el.style.transform=transform;item.transform=transform;}
     }
     for (const item of activeReveals) {
       if (finished.has(item.el)) { activeReveals.delete(item); continue; }
@@ -111,8 +116,8 @@ export function createInvitationMotion(root, reducedMotion, updateAtmosphere = (
     reveals = [...root.querySelectorAll('[data-reveal]')].map(el => ({ el, kind: el.dataset.reveal, delay:Math.min(180,Number(el.dataset.revealDelay)||0) }));
     ambient = [...document.querySelectorAll('[data-ambient]')];
     timeline = root.querySelector('.timeline');
-    for (const item of layers) layerObserver.observe(item.el);
-    for (const item of reveals) if (!finished.has(item.el)) revealObserver.observe(item.el);
+    for (const item of layers) {layerRecords.set(item.el,item);layerObserver.observe(item.el);}
+    for (const item of reveals) {revealRecords.set(item.el,item);if (!finished.has(item.el)) revealObserver.observe(item.el);}
     for (const el of ambient) ambientObserver.observe(el);
     if (reducedMotion.matches) preferenceChanged();
     refresh(); updateAmbient();
@@ -123,6 +128,7 @@ export function createInvitationMotion(root, reducedMotion, updateAtmosphere = (
       for (const animation of entrances) animation.cancel();
       entrances.clear();
       for (const { el } of [...layers, ...reveals]) { el.style.removeProperty('transform'); el.style.removeProperty('opacity'); }
+      for(const item of layers)item.transform=null;
       for (const item of reveals) { finished.add(item.el); item.el.classList.add('reveal-complete'); }
       revealObserver.disconnect(); activeReveals.clear();
       timeline?.style.setProperty('--progress', 1);

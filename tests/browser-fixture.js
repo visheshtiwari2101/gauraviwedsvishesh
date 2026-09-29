@@ -5,6 +5,19 @@
  const report=document.createElement('output');report.id='qa-report';report.setAttribute('aria-label','Local QA results');
  report.style.cssText='position:fixed;top:0;left:0;z-index:1000;max-width:100%;background:#fff;color:#222;padding:3px 7px;font:11px monospace;pointer-events:none';
  document.body.append(report);
+ // Test-only telemetry: read via the DOM, never included in production files.
+ let shifts=0,longTasks=0;
+ if('PerformanceObserver' in window){
+  for(const type of ['layout-shift','longtask'])try{
+   new PerformanceObserver(list=>{
+    for(const entry of list.getEntries()){
+     if(type==='layout-shift'&&!entry.hadRecentInput)shifts+=entry.value;
+     if(type==='longtask')longTasks++;
+    }
+    report.dataset.layoutShift=String(shifts);report.dataset.longTasks=String(longTasks);
+   }).observe({type,buffered:true});
+  }catch{}
+ }
  const update=()=>report.textContent=JSON.stringify({mode,submissions,instances,plays,pauses,payload});update();
  const originalFetch=window.fetch.bind(window);
  window.fetch=async(input,options)=>{

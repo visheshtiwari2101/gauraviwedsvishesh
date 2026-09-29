@@ -13,9 +13,10 @@ export function mountGarden(root) {
   // Unequal sequences and intervals avoid mirrored borders. Only selected
   // branches move; a single shared sprite sheet supplies six small components.
   let markup = '';
+  const compact = matchMedia('(max-width: 700px)').matches;
   for (const side of ['left','right']) {
     const seed = side === 'left' ? 0 : 7;
-    for (const [depth, count] of [['distant',49],['middle',83],['foreground',23]]) {
+    for (const [depth, count] of [['distant',compact?24:49],['middle',compact?48:83],['foreground',compact?16:23]]) {
       markup += `<div class="garden-rail ${side} ${depth}">`;
       for (let i=0;i<count;i++) {
         const n=i+seed;
@@ -24,7 +25,8 @@ export function mountGarden(root) {
         const size = 145+(n*37)%80;
         const angle = -26+(n*13)%54;
         const animate = depth!=='distant' || i%3===0;
-        markup += `<div class="garden-piece" data-depth="${depth==='foreground'?'.19':depth==='distant'?'.025':'.085'}" style="top:${top.toFixed(2)}%;--size:${size}px;--angle:${angle}deg;--flip:${n%3===0?-1:1};--inset:${n%4*9}px;--breeze:${7+n%9}s;--delay:-${n%17}s;--bend:${5.5+n%4*1.1}deg"><div class="garden-sway" data-breeze-side="${side}" ${animate?`data-ambient="${tile===5?'bird':tile===1?'vine':tile===2?'grass':'leaf'}"`:''}><div class="garden-sprite tile-${tile}"></div></div></div>`;
+        const parallax = !compact || (depth!=='distant' && i%3===0);
+        markup += `<div class="garden-piece" ${parallax?`data-depth="${depth==='foreground'?'.19':depth==='distant'?'.025':'.085'}"`:''} style="top:${top.toFixed(2)}%;--size:${size}px;--angle:${angle}deg;--flip:${n%3===0?-1:1};--inset:${n%4*9}px;--breeze:${7+n%9}s;--delay:-${n%17}s;--bend:${9+n%4*1.3}deg"><div class="garden-sway" data-breeze-side="${side}" ${animate?`data-ambient="${tile===5?'bird':tile===1?'vine':tile===2?'grass':'leaf'}"`:''}><div class="garden-sprite tile-${tile}"></div></div></div>`;
       }
       markup += '</div>';
     }
@@ -32,9 +34,10 @@ export function mountGarden(root) {
   world.innerHTML=markup;
   for(const side of ['left','right']) {
     const rail=world.querySelector(`.${side}.middle`);
-    for(let i=0;i<96;i++) {
+    const flowers=compact?64:96;
+    for(let i=0;i<flowers;i++) {
       const type=i%6<4?'bougainvillea':i%6===4?'tile-1':'tile-4';
-      rail.insertAdjacentHTML('beforeend',`<div class="garden-piece flower-piece" data-depth=".11" style="top:${(i+.3+(side==='right'?.4:0))*100/96}%;--size:${57+i%4*8}px;--angle:${-18+i%5*9}deg;--flip:${side==='left'?1:-1};--breeze:${6+(i+(side==='right'?2:0))%7}s;--delay:-${(i+(side==='right'?4:0))%13}s;--bend:${5+i%3*1.2}deg"><div class="garden-sway" data-breeze-side="${side}" data-ambient="flower"><div class="garden-sprite ${type}"></div></div></div>`);
+      rail.insertAdjacentHTML('beforeend',`<div class="garden-piece flower-piece" ${!compact||i%8===0?'data-depth=".11"':''} style="top:${(i+.3+(side==='right'?.4:0))*100/flowers}%;--size:${51+i%4*7}px;--angle:${-18+i%5*9}deg;--flip:${side==='left'?1:-1};--breeze:${6+(i+(side==='right'?2:0))%7}s;--delay:-${(i+(side==='right'?4:0))%13}s;--bend:${9+i%3*1.6}deg"><div class="garden-sway" data-breeze-side="${side}" data-ambient="flower"><div class="garden-sprite ${type}"></div></div></div>`);
     }
   }
   // Two sparse, staggered flocks occupy distant sky throughout the journey.
@@ -58,6 +61,6 @@ export function mountGarden(root) {
     afternoon.style.opacity=String(Math.min(1,progress*2.1));
     sunset.style.opacity=String(Math.max(0,(progress-.43)/.57));
     const light=Math.round(progress*20)/20;
-    if(light!==lastLight){world.style.setProperty('--evening',String(light*.14));lastLight=light;}
+    if(!compact && light!==lastLight){world.style.setProperty('--evening',String(light*.14));lastLight=light;}
   };
 }
