@@ -197,7 +197,7 @@ export const content = {
     "pauseLabel": "Pause wedding music",
     "skip": "Skip to invitation",
     "musicUnavailable": "Music is unavailable. Please try again later.",
-    "familyRequest": "We request the honour of your presence at the wedding of our beloved daughter",
+    "familyRequest": "We request the honour of your presence at the wedding of our beloved grand daughter",
     "groomParents": "(S/o Smt. Indira Tiwari & Shri Parashuram Tiwari)",
     "brideParents": "(D/o Smt. Rashmi Pathak & Shri Deepak Pathak)",
     "union": "with"
@@ -262,7 +262,7 @@ export const content = {
     "pauseLabel": "विवाह संगीत रोकें",
     "skip": "आमंत्रण पर जाएँ",
     "musicUnavailable": "अभी संगीत उपलब्ध नहीं है। कृपया बाद में प्रयास करें।",
-    "familyRequest": "हम अपनी प्रिय सुपुत्री के शुभ विवाह के मंगल अवसर पर आपकी सपरिवार गरिमामयी उपस्थिति की सादर कामना करते हैं",
+    "familyRequest": "हम अपनी प्रिय पौत्री के शुभ विवाह के मंगल अवसर पर आपकी सपरिवार गरिमामयी उपस्थिति की सादर कामना करते हैं",
     "groomParents": "(सुपुत्र — श्रीमती इंदिरा तिवारी एवं श्री परशुराम तिवारी)",
     "brideParents": "(सुपुत्री — श्रीमती रश्मि पाठक एवं श्री दीपक कुमार पाठक)",
     "union": "संग"
