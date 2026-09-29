@@ -424,3 +424,5 @@ body.entering #invitation { pointer-events: none; }
  .closing-sprig:nth-child(3n) { width: 54px; height: 54px; }
  .closing-garden .garden-sprite { transform: rotate(calc(var(--angle)*.3)) scaleX(var(--flip)); }
 }
+/* Keep the persistent player mounted without affecting invitation layout. */
+#music-player-wrap { position: fixed; left: -220px; top: 0; width: 200px; height: 200px; pointer-events: none; }

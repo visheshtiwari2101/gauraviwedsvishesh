@@ -1,7 +1,7 @@
 // Simulates transport and media only on the isolated 4174 QA host.
 (() => {
  const mode=new URLSearchParams(location.search).get('mode')||'success';
- let submissions=0,instances=0,plays=0,pauses=0,videoId="",payload={};
+ let submissions=0,instances=0,plays=0,pauses=0,videoId="",seeks=0,fixturePlayer,payload={};
  const report=document.createElement('output');report.id='qa-report';report.setAttribute('aria-label','Local QA results');
  report.style.cssText='position:fixed;top:0;left:0;z-index:1000;max-width:100%;background:#fff;color:#222;padding:3px 7px;font:11px monospace;pointer-events:none';
  document.body.append(report);
@@ -18,7 +18,7 @@
    }).observe({type,buffered:true});
   }catch{}
  }
- const update=()=>report.textContent=JSON.stringify({mode,submissions,instances,plays,pauses,videoId,payload});update();
+ const update=()=>report.textContent=JSON.stringify({mode,submissions,instances,plays,pauses,videoId,seeks,payload});update();
  const originalFetch=window.fetch.bind(window);
  window.fetch=async(input,options)=>{
   if(!String(input).includes('script.google.com/macros/'))return originalFetch(input,options);
@@ -28,11 +28,14 @@
   return new Response('{"ok":true}',{status:200,headers:{'Content-Type':'application/json'}});
  };
  window.YT={Player:class{
-  constructor(id,options){instances++;videoId=options.videoId;this.events=options.events;queueMicrotask(()=>this.events.onReady({target:this}));update();}
+  constructor(id,options){instances++;fixturePlayer=this;videoId=options.videoId;this.events=options.events;queueMicrotask(()=>this.events.onReady({target:this}));update();}
   setVolume(){}
-  playVideo(){plays++;this.events.onStateChange({data:1});update();}
+  playVideo(){plays++;if(mode==='blocked'&&plays===1)this.events.onAutoplayBlocked();else this.events.onStateChange({data:1});update();}
+  unMute(){}
+  seekTo(){seeks++;update();}
   pauseVideo(){pauses++;this.events.onStateChange({data:2});update();}
  }};
+ const endButton=document.createElement('button');endButton.textContent='QA: finish track';endButton.style.cssText='position:fixed;top:40px;left:0;z-index:1000;font-size:11px';endButton.onclick=()=>fixturePlayer?.events.onStateChange({data:0});document.body.append(endButton);
  const append=document.head.append.bind(document.head);
  document.head.append=(...nodes)=>{
   for(const node of nodes)if(node.id==='youtube-api'){node.removeAttribute('src');node.type='text/plain';queueMicrotask(()=>window.onYouTubeIframeAPIReady());}

@@ -1,0 +1,8 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {createMusicPlayback} from '../dist/music.js';
+function setup(){const calls=[];let state;const music=createMusicPlayback(s=>state=s);const player={setVolume:v=>calls.push(['volume',v]),unMute:()=>calls.push(['unmute']),playVideo:()=>calls.push(['play']),pauseVideo:()=>calls.push(['pause']),seekTo:(...v)=>calls.push(['seek',...v])};return {music,player,calls,state:()=>state};}
+test('preparation stays silent; first gesture plays a ready player',()=>{const x=setup();x.music.ready(x.player);assert.equal(x.calls.filter(c=>c[0]==='play').length,0);x.music.gesture();assert.equal(x.calls.at(-1)[0],'play');});
+test('slow readiness preserves intent and blocked playback retries on a gesture',()=>{const x=setup();x.music.request();x.music.ready(x.player);x.music.blocked();assert.equal(x.state().blocked,true);const before=x.calls.length;x.music.gesture();assert.equal(x.calls.length,before+2);assert.equal(x.state().blocked,false);});
+test('ended seeks to zero and loops repeatedly, but manual pause stays authoritative',()=>{const x=setup();x.music.ready(x.player);x.music.request();for(let i=0;i<3;i++)x.music.state(0);assert.equal(x.calls.filter(c=>c[0]==='seek').length,3);assert.deepEqual(x.calls.find(c=>c[0]==='seek'),['seek',0,true]);x.music.pause();const before=x.calls.length;x.music.gesture();x.music.state(0);assert.equal(x.calls.length,before);x.music.state(1);assert.equal(x.calls.at(-1)[0],'pause');x.music.toggle();assert.equal(x.calls.at(-1)[0],'play');});
+test('pausing before readiness prevents a delayed automatic start',()=>{const x=setup();x.music.request();x.music.pause();x.music.ready(x.player);assert.equal(x.calls.filter(c=>c[0]==='play').length,0);});

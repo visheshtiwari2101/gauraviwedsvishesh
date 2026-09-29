@@ -9,7 +9,7 @@ export const wedding = {
  assets:{ganesha:'./assets/ganesha.png',monogram:'./assets/monogram.png'},
  families:[
  {grandparents:{en:['Late Shri Swami Prasad Tiwari','Late Smt. Laddu Bai Tiwari'],hi:['स्व. श्री स्वामी प्रसाद तिवारी','स्व. श्रीमती लड्डू बाई तिवारी']},parents:{en:['Mr. Parashuram Tiwari','Mrs. Indira Tiwari'],hi:['श्री परशुराम तिवारी','श्रीमती इंदिरा तिवारी']},contact:'8770546385'},
- {grandparents:{en:['Brij Bihari Lal Pathak','Late Pushpa Pathak'],hi:['श्री बृज बिहारी लाल पाठक','स्व. श्रीमती पुष्पा पाठक']},parents:{en:['Mr. Deepak Pathak','Mrs. Rashmi Pathak'],hi:['श्री दीपक पाठक','श्रीमती रश्मि पाठक']},contact:'8989428932'}],
+ {grandparents:{en:['Brij Bihari Lal Pathak','Late Pushpa Pathak'],hi:['श्री बृज बिहारी लाल पाठक','स्व. श्रीमती पुष्पा पाठक']},parents:{en:['Mr. Deepak Pathak','Mrs. Rashmi Pathak'],hi:['श्री दीपक कुमार पाठक','श्रीमती रश्मि पाठक']},contact:'8989428932'}],
  events:[
  {date:0,time:'11:00 AM',name:{en:'Ganesh Pujan & Mandap Pujan',hi:'गणेश पूजन एवं मंडप पूजन'},note:{en:'An auspicious beginning, with blessings from above.',hi:'मंगल आशीर्वाद के साथ शुभ उत्सव का आरम्भ।'}},
  {date:0,time:'2:00 PM',name:{en:'Haldi',hi:'हल्दी'},note:{en:'A little turmeric, a little laughter, a whole lot of love.',hi:'हल्दी के रंग, अपनों की हँसी और ढेर सारा प्यार।'}},

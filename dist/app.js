@@ -2,12 +2,13 @@ import {wedding as w,content} from './config.js';
 import {countdownParts,validateRsvp,sendRsvp} from './services.js';
 import {createInvitationMotion} from './motion.js';
 import {mountGarden} from './world.js';
-let language='en',entered=false,formState='idle',player,musicPlaying=false,musicWanted=false,playerReady=false;
+import {createMusicPlayback} from './music.js';
+let language='en',entered=false,formState='idle',player,musicPlaying=false;
 const main=document.querySelector('main'),reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
 const escape=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const t=key=>content[language][key];
 const copy=(key,tag='p',cls='')=>`<${tag} class="${cls}" data-copy="${key}">${escape(t(key))}</${tag}>`;
-const names=()=>`${w.couple[language][0]} <span>&</span> ${w.couple[language][1]}`;
+const names=()=>`${w.couple[language][0]} <span>${language==='hi'?'संग':'&'}</span> ${w.couple[language][1]}`;
 const official=key=>`<div class="official ${key}"><img src="${w.assets[key]}" alt="${key==='ganesha'?'Lord Ganesha':'Official Vishesh and Gauravi wedding monogram'}" width="${key==='ganesha'?365:1024}" height="${key==='ganesha'?354:1024}" loading="lazy"></div>`;
 document.querySelectorAll('[data-official]').forEach(slot=>{const key=slot.dataset.official;slot.innerHTML=`<img src="${w.assets[key]}" alt="${key==='ganesha'?'Lord Ganesha':'Official Vishesh and Gauravi wedding monogram'}" width="${key==='ganesha'?365:1024}" height="${key==='ganesha'?354:1024}">`;});
 function familyMarkup(f,index) {
@@ -54,6 +55,7 @@ function updateStatus(){const keys={submitting:'submitting',success:'success',er
 function setLanguage(next){
  if(!content[next])return;const anchor=[...main.querySelectorAll('h2,h3,.field,.event-time,.parents,.grandparents')].find(s=>s.getBoundingClientRect().bottom>innerHeight*.2),offset=anchor?.getBoundingClientRect().top;
  language=next;document.documentElement.lang=next;
+ document.querySelector('.opening-amp').textContent=next==='hi'?'संग':'&';
  document.querySelectorAll('[data-copy]').forEach(el=>el.textContent=t(el.dataset.copy));document.querySelectorAll('[data-names]').forEach(el=>el.innerHTML=names());
  document.querySelectorAll('[data-couple]').forEach(el=>el.textContent=w.couple[next][Number(el.dataset.couple)]);
  document.querySelectorAll('[data-month]').forEach(el=>el.textContent=t('month'));
@@ -69,7 +71,7 @@ function updateCountdown(){const parts=countdownParts(w.countdown);document.quer
 updateCountdown();setInterval(updateCountdown,1000);setLanguage('en');
 document.querySelector('.language-control').addEventListener('click',()=>setLanguage(language==='en'?'hi':'en'));
 document.querySelectorAll('[data-enter]').forEach(b=>b.addEventListener('click',()=>enter(b.dataset.enter)));
-document.querySelector('.skip-link').addEventListener('click',e=>{if(!entered){e.preventDefault();enter(language,false);}});
+document.querySelector('.skip-link').addEventListener('click',e=>{if(!entered){e.preventDefault();enter(language);}});
 async function enter(lang,withMedia=true){
  if(entered)return;
  setLanguage(lang);entered=true;
@@ -77,7 +79,7 @@ async function enter(lang,withMedia=true){
  document.body.classList.add('entering');
  opening.inert=true;main.hidden=false;
  window.scrollTo({top:0,behavior:'instant'});
- if(withMedia){musicWanted=true;startMusic();}
+ if(withMedia){music.request();prepareMusic();}
  motion.start();
  if(!reducedMotion.matches){
   const exit=opening.animate([{opacity:1,transform:'scale(1)'},{opacity:0,transform:'scale(1.025)'}],{duration:720,easing:'cubic-bezier(.22,.61,.36,1)',fill:'forwards'});
@@ -133,5 +135,36 @@ form.addEventListener('submit',async e=>{
 });
 updateGuestControls();
 function updateMusicControl(){const b=document.querySelector('#music-toggle');b.setAttribute('aria-pressed',String(musicPlaying));b.setAttribute('aria-label',t(musicPlaying?'pauseLabel':'playLabel'));b.dataset.state=musicPlaying?'playing':'paused';}
-function startMusic(){if(playerReady){try{player.playVideo();}catch{}return;}if(document.querySelector('#youtube-api'))return;window.onYouTubeIframeAPIReady=()=>{player=new window.YT.Player('music-player',{width:200,height:200,videoId:new URL(w.musicUrl).searchParams.get('v'),playerVars:{playsinline:1,loop:1,playlist:new URL(w.musicUrl).searchParams.get('v'),origin:location.origin},events:{onReady:()=>{playerReady=true;player.setVolume(35);if(musicWanted)player.playVideo();},onStateChange:e=>{musicPlaying=e.data===1;updateMusicControl();},onAutoplayBlocked:()=>{musicPlaying=false;updateMusicControl();},onError:()=>{musicPlaying=false;musicWanted=false;updateMusicControl();document.querySelector('#music-toggle').title=t('musicUnavailable');}}});};const script=document.createElement('script');script.id='youtube-api';script.src='https://www.youtube.com/iframe_api';script.async=true;script.onerror=()=>{script.remove();musicWanted=false;updateMusicControl();};document.head.append(script);}
-document.querySelector('#music-toggle').addEventListener('click',()=>{if(musicPlaying){musicWanted=false;player?.pauseVideo();}else{musicWanted=true;startMusic();}});
+
+const music=createMusicPlayback(state=>{musicPlaying=state.playing;updateMusicControl();});
+function prepareMusic(){
+ if(player)return;
+ const createPlayer=()=>{
+  if(player)return;
+  const videoId=new URL(w.musicUrl).searchParams.get('v');
+  const wrap=document.querySelector('#music-player-wrap');wrap.hidden=false;wrap.setAttribute('aria-hidden','true');
+  player=new window.YT.Player('music-player',{width:200,height:200,videoId,
+   playerVars:{autoplay:0,playsinline:1,loop:1,playlist:videoId,origin:location.origin},
+   events:{
+    onReady:e=>{const frame=e.target.getIframe?.();if(frame){frame.setAttribute('allow','autoplay; encrypted-media; fullscreen; picture-in-picture');frame.setAttribute('referrerpolicy','strict-origin-when-cross-origin');frame.tabIndex=-1;}music.ready(e.target);},
+    onStateChange:e=>music.state(e.data),
+    onAutoplayBlocked:()=>music.blocked(),
+    onError:()=>{music.error();document.querySelector('#music-toggle').title=t('musicUnavailable');}
+   }});
+ };
+ if(window.YT?.Player){createPlayer();return;}
+ if(document.querySelector('#youtube-api'))return;
+ window.onYouTubeIframeAPIReady=createPlayer;
+ const script=document.createElement('script');script.id='youtube-api';script.src='https://www.youtube.com/iframe_api';script.async=true;
+ script.onerror=()=>{script.remove();music.error();};document.head.append(script);
+}
+document.querySelector('#music-toggle').addEventListener('click',()=>{music.toggle();prepareMusic();});
+function musicGesture(event){
+ if(!event.isTrusted||event.target.closest?.('#music-toggle'))return;
+ if(event.type==='keydown'&&!['Enter',' '].includes(event.key))return;
+ music.gesture();prepareMusic();
+}
+document.addEventListener('pointerup',musicGesture,{passive:true});
+document.addEventListener('keydown',musicGesture);
+// Prepare silently so the first tap can call playVideo synchronously.
+prepareMusic();

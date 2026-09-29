@@ -37,3 +37,11 @@ Build and seven regression tests passed. Browser checks at 360/375/390/412/430px
 ## Final mobile bottom border
 
 The closing composition is now a straight, overlapping horizontal row on mobile only, after the contact section. Existing plants remain square and retain independent wind/parallax; the curved garland line is hidden on mobile. Desktop closing placement and styling are otherwise unchanged. Checked at 360, 375, 390, 412 and 430px: zero horizontal overflow or detected closing-sprite clipping, correct aspect ratios, and the garden remains the last journey element. Build and seven tests passed. This final state supersedes the earlier uncommitted-review note; the user authorized committing and pushing all pending refinements.
+
+## Music interaction, loop and Hindi follow-up
+
+Prepared the existing YouTube IFrame player silently before entry, removed the display:none player ancestor while keeping its rendered 200px box outside the visual layout, and retained one persistent player. Playback intent is now independent of asynchronous player state: trusted pointer/keyboard gestures request playback, blocked attempts retry on subsequent gestures, ENDED seeks to zero and restarts, and explicit pause prevents late events or unrelated gestures from restarting music. No media is downloaded and browser autoplay restrictions remain authoritative.
+
+Hindi joining text uses संग; Hindi parent/contact data now uses श्री दीपक कुमार पाठक. English wording and supplied artwork are unchanged.
+
+Build and eleven regression tests passed, including silent preparation, delayed readiness, autoplay-block recovery, repeated ending events and authoritative manual pause. Browser fixtures at 390x844 and 1280x900 verified one persistent player, looping, pause across language changes, the new Hindi strings and unchanged English. Real YouTube iframe loading was attempted in both viewport sizes, but the embedded player did not produce a confirmed ready/playing response in this local browser; audible playback and physical-phone behavior remain unverified. Reference: https://developers.google.com/youtube/iframe_api_reference
