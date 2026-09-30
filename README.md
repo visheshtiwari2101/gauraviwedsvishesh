@@ -4,7 +4,7 @@ Existing bilingual, mobile-first wedding invitation with layered botanical scene
 
 This copy is an invitation from Gauravi's Pathak family. Deepak Pathak and Rashmi Pathak invite guests to their daughter's wedding with Vishesh Tiwari; his parents remain correctly identified as Parashuram Tiwari and Indira Tiwari. Couple branding and the original monogram remain Gauravi & Vishesh.
 
-The Pathak grandparents (Brij Bihari Lal Pathak and Late Pushpa Pathak), family telephone 8989428932, and Hindi name दीपक कुमार पाठक were recovered from the existing configuration in Git commit `5e6bc66`. Dates, event times, venue, countdown, music and RSVP service configuration remain unchanged. Older refinement notes below describe historical versions, including the earlier groom-side invitation.
+The Pathak grandparents (Late Pushpa Pathak and Brij Bihari Lal Pathak), family telephone 8989428932, and Hindi name दीपक कुमार पाठक were recovered from the existing configuration in Git commit `5e6bc66`. Dates, event times, venue, countdown, music and RSVP service configuration remain unchanged. Older refinement notes below describe historical versions, including the earlier groom-side invitation.
 
 ## Run and validate
 

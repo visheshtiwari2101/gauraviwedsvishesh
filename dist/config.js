@@ -39,12 +39,12 @@ export const wedding = {
     {
       "grandparents": {
         "en": [
-          "Shri Brij Bihari Lal Pathak",
-          "Late Smt. Pushpa Pathak"
+          "Late Smt. Pushpa Pathak",
+          "Shri Brij Bihari Lal Pathak"
         ],
         "hi": [
-          "श्री बृज बिहारी लाल पाठक",
-          "स्व. श्रीमती पुष्पा पाठक"
+          "स्व. श्रीमती पुष्पा पाठक",
+          "श्री बृज बिहारी लाल पाठक"
         ]
       },
       "parents": {
@@ -145,7 +145,7 @@ export const content = {
     "month": "December",
     "dateRange": "7–8 December 2026",
     "ceremony": "॥ श्री गणेशाय नमः ॥",
-    "heroIntro": "With the divine blessings of Lord Ganesha and hearts filled with joy, we, the Pathak family, invite you to celebrate the wedding of our beloved Gauravi and Vishesh.",
+    "heroIntro": "With the divine blessings of Lord Ganesha and hearts filled with joy, we invite you to celebrate the sacred union of our children.",
     "heroEnd": "We welcome you to share our joy and bless the couple.",
     "scroll": "SCROLL TO CELEBRATE",
     "familyKicker": "ROOTED IN LOVE · BLESSED BY FAMILY",
@@ -197,7 +197,7 @@ export const content = {
     "pauseLabel": "Pause wedding music",
     "skip": "Skip to invitation",
     "musicUnavailable": "Music is unavailable. Please try again later.",
-    "familyRequest": "We request the honour of your presence at the wedding of our beloved grand daughter",
+    "familyRequest": "We request the honour of your presence at the wedding of our beloved granddaughter",
     "groomParents": "(S/o Smt. Indira Tiwari & Shri Parashuram Tiwari)",
     "brideParents": "(D/o Smt. Rashmi Pathak & Shri Deepak Pathak)",
     "union": "with"
@@ -210,7 +210,7 @@ export const content = {
     "month": "दिसंबर",
     "dateRange": "7–8 दिसंबर 2026",
     "ceremony": "॥ श्री गणेशाय नमः ॥",
-    "heroIntro": "श्री गणेश जी की मंगल कृपा और हर्षित हृदय से हम, पाठक परिवार, अपनी प्रिय गौरवी और विशेष के शुभ विवाह में आपको सपरिवार सादर आमंत्रित करते हैं।",
+    "heroIntro": "श्री गणेश जी की मंगल कृपा और हर्षित हृदय से हम अपने प्रिय बच्चों के शुभ विवाह में आपको सपरिवार सादर आमंत्रित करते हैं।",
     "heroEnd": "हमारी खुशियों में सम्मिलित होकर नवयुगल को अपना स्नेह और शुभाशीष दें।",
     "scroll": "मंगल उत्सव की ओर",
     "familyKicker": "अपनों का स्नेह · बड़ों का आशीर्वाद",
